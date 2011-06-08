@@ -51,7 +51,8 @@ projects[feeds_selfnode_processor][subdir] = contrib
 projects[feeds_tamper][subdir] = contrib
 projects[smtp][version] = 1.x-dev
 projects[smtp][subdir] = contrib
-  
+projects[advanced_help][subdir] = contrib  
+
 
 ; Themes
 ; --------
