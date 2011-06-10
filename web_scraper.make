@@ -52,6 +52,8 @@ projects[feeds_tamper][subdir] = contrib
 projects[smtp][version] = 1.x-dev
 projects[smtp][subdir] = contrib
 projects[advanced_help][subdir] = contrib  
+projects[simpletest_selenium][version] = 1.x-dev
+projects[simpletest_selenium][subdir] = contrib
 
 
 ; Themes
