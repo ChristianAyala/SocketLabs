@@ -54,6 +54,10 @@ projects[smtp][subdir] = contrib
 projects[advanced_help][subdir] = contrib  
 projects[simpletest_selenium][version] = 1.x-dev
 projects[simpletest_selenium][subdir] = contrib
+projects[socketlabs_feature][type] = "module"
+projects[socketlabs_feature][download][type] = "git"
+projects[socketlabs_feature][download][url] = "git://github.com/cayala09/SocketLabs.git"
+projects[socketlabs_feature][subdir] = contrib
 
 
 ; Themes
