@@ -20,6 +20,7 @@ dependencies[] = "views"
 dependencies[] = "views_export"
 dependencies[] = "views_ui"
 description = "Feature with all the settings needed to run SocketLabs report."
+files[] = tests/SocketLabsTest.test
 features[ctools][] = "feeds:feeds_importer_default:1"
 features[ctools][] = "views:views_default:3.0"
 features[feeds_importer][] = "failed_mail_importer"
