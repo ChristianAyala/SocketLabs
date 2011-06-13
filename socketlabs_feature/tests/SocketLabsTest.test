@@ -226,6 +226,21 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertFieldById(t('edit-title'), '', t('The edit title field is present'));
     $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
     $this->assertText(t('XPath Parser Settings'), t('The user can edit the XPath parser settings'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser1'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser2'), t('MessageId'), t('The field_messageId is present and set to the proper default setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser3'), t('MailingId'), t('The field_mailingid is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser4'), t('ToAddress'), t('The field_toaddress is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser5'), t('FromAddress'), t('The field_fromaddress is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser6'), t('FailureType'), t('The field_failtype is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('FailureCode'), t('The field_failcode is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('Reason'), t('The field_reason is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('AccountId'), t('The field_acountid is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser10'), '', t('The field guid is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser11'), '', t('The field_datetime is present and set to the proper dafault setting'));
+    
+    
+    
     $edit = array(
       'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
     );
