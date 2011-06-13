@@ -131,7 +131,7 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       $this->drupalLogin($admin_user);
   }
 
-  protected function testExample() {
+  protected function testProperInstall() {
     cache_clear_all('plugins:feeds:plugins', 'cache');
     
     //Ensures the feature was installed successfully
@@ -146,9 +146,12 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     
     //Tests the Failed Mail tab and search fields
     $this->clickLink(t('Failed Mail'));
-    $this->assertText(t('Filter: Sent From'), t('The FAILED MAIL tab was loaded properly, and the SENT FROM filter is present'));
-    $this->assertText(t('Filter: Sent To'), t('The FAILED MAIL tab was loaded properly, and the SENT TO filter is present'));
-    $this->assertText(t('Filter: Date/Time'), t('The FAILED MAIL tab was loaded properly, and the DATE/TIME filter is present'));
+    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
+    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
+    $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
+    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -163,9 +166,12 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     
     $this->clickLink(t('Processed Messages'));
     $this->assertResponse(200, t('The PROCESSED MESSAGES tab was loaded properly'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
+    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
+    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -180,9 +186,12 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     
     $this->clickLink('Queued Messages');
     $this->assertResponse(200, t('The QUEUED MESSAGES tab was loaded properly'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
+    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
+    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -197,18 +206,28 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->clickLink(t('Open/Click Mail'));
     $this->assertResponse(200, t('The OPEN/CLICK tab was loaded properly'));
     $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('Is equal to'), t('The select is present, and default is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), t('The input field is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('='), t('The select is present, and default is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The input field is present'));
     
     
     
     
-    
-    
+    $this->drupalGet('');
     $this->clickLink(t('Import'));
+    $this->assertResponse(200, 'User has privilege to import a feed');
+    $this->assertLink(t('xml failed feed'), 0, t('XML Failed Feed is present'));
+    $this->assertLink(t('xml feedback loop feed'), 0, t('XML Feedback Loop Feed is present'));
+    $this->assertLink(t('xml open click'), 0, t('XML Open Click Feed is present'));
+    $this->assertLink(t('xml messages processed'), 0, t('XML Messages Processed Feed is present'));
+    $this->assertLink(t('xml messages queued'), 0, t('XML Messages Queued Feed is present'));
+    
     $this->clickLink(t('xml failed feed'));
+    $this->assertResponse(200, 'The failed feed options page loaded correctly');
+    $this->assertFieldById(t('edit-title'), '', t('The edit title field is present'));
+    $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
+    $this->assertText(t('XPath Parser Settings'), t('The user can edit the XPath parser settings'));
     $edit = array(
-      'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml'
+      'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
     );
     //$this->drupalPost(NULL, $edit, t('Save'));
     
