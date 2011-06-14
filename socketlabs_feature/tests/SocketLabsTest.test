@@ -297,7 +297,15 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       $this->assertResponse(200, t('The query searching to address ' . $edit['field_toaddress_value'] . ' was successful'));
       $this->assertRaw(t('views-table'), t('Results were returned, and a table is visible'));
     }
+    $query = "SELECT nid, title FROM {node} WHERE type = 'failed_mail_node'";
+    $result = db_query($query);
+    foreach ($result as $record) {
+      $nid = $record->nid;
+      $title = $record->title;
+      $this->drupalGet('node/'.$nid.'/edit');
+      $this->drupalPost(NULL, array('title' => $this->randomName(10)), t('Delete'));
+      $this->drupalPost(NULL, array(), t('Delete'));
+      $this->assertRaw(t('failed mail node <em class="placeholder">'.$title.'</em> has been deleted'), t('The node with nid ' . $nid . ' was properly deleted'));
+    }
   }
 }
-
-
