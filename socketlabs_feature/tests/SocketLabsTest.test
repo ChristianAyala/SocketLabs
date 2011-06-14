@@ -76,17 +76,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "delete any xml_messages_processed content",
       "delete any xml_messages_queued content",
       "delete any xml_open_click content",
-      "delete own failed_mail_node content",
-      "delete own feedback_loop_report content",
-      "delete own messages_open_click_node content",
-      "delete own messages_processed_node content",
-      "delete own messages_queued_node content",
-      "delete own page content",
-      "delete own xml_failed_feed content",
-      "delete own xml_feedback_loop_report content",
-      "delete own xml_messages_processed content",
-      "delete own xml_messages_queued content",
-      "delete own xml_open_click content",
       "delete revisions",
       "edit any failed_mail_node content",
       "edit any feedback_loop_report content",
@@ -99,17 +88,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "edit any xml_messages_processed content",
       "edit any xml_messages_queued content",
       "edit any xml_open_click content",
-      "edit own failed_mail_node content",
-      "edit own feedback_loop_report content",
-      "edit own messages_open_click_node content",
-      "edit own messages_processed_node content",
-      "edit own messages_queued_node content",
-      "edit own page content",
-      "edit own xml_failed_feed content",
-      "edit own xml_feedback_loop_report content",
-      "edit own xml_messages_processed content",
-      "edit own xml_messages_queued content",
-      "edit own xml_open_click content",
       "import failed_mail_importer feeds",
       "import feed feeds",
       "import feedback_loop_importer feeds",
@@ -259,13 +237,50 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertText(t('failed with code 401'), t('Because no credentials were given, there should be a 401 - Unauthorized Access error'));
     $this->assertResponse(500, t('Due to previous API call error, the server should return error code 500'));
     
-    /*
+    $edit= array(
+      'feeds[FeedsHTTPFetcher][source]' => 'http://www.engadget.com/rss.xml',
+      'title' => 'Engadget',
+    );
+    
+    $node_count = 0;
+    $this->drupalGet('node/add/xml-failed-feed');
+    $this->drupalPost(NULL, $edit, t('Save'));
+    $this->assertResponse(200, t('This is a valid URL, but invalid XML returned'));
+    $this->assertText(t('There are no new nodes'), t('No new nodes were created with ' . $edit['feeds[FeedsHTTPFetcher][source]']));
+    $this->assertRaw(t('xml failed feed <em class="placeholder">' .$edit['title']  . '</em> has been created'), t('XML Feed was technically created with' . $edit['feeds[FeedsHTTPFetcher][source]']));
+    
+    $query = 'SELECT count(*) as count FROM {node}';
+    $result = db_query($query);
+    foreach ($result as $record) {
+      $this->pass(t('Number of nodes is ' . $record->count));
+      $node_count += $record->count;
+    }
+    
+    
     $edit = array(
       'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
+      'title' => 'SocketLabs Result',
     );
     $this->drupalGet('node/add/xml-failed-feed');
     $this->drupalPost(NULL, $edit, t('Save'));
-    */
+    $return_content = $this->drupalGetContent();
+    $this->assertResponse(200, t('This is a fully validated SocketLabs URL'));
+    $this->assertRaw(t('xml failed feed <em class="placeholder">' .$edit['title']  . '</em> has been created'), t('XML Feed was created with' . $edit['feeds[FeedsHTTPFetcher][source]']));
+    $position = strpos($return_content, '<li>Created');
+    $number_created = $position+12;
+    $number_created = substr($return_content, $number_created, 2);
+    $this->pass(t('Number created: ' . $number_created . ' ...nodes'));
+    
+    $result = db_query($query);
+    foreach ($result as $record) {
+      $this->assertEqual(($record->count - $node_count - 1), $number_created, t('The number created matches the additions in the database: '. ($record->count - $node_count - 1)));
+    }
+    
+    $this->drupalGet('');
+    $this->assertText(t($edit['title']), t('The feed ' . $edit['title'] . ' appears on the home page'));
+    $this->drupalGet('socketlabs/failed_mail');
+    $this->assertRaw(t('<table class="views-table sticky-enabled cols-10 tableheader-processed sticky-table">'), t('The table appears on the proper tab with results'));
+    
   }
 }
 
