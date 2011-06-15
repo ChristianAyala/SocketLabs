@@ -306,12 +306,6 @@ function socketlabs_feature_user_default_permissions() {
     'roles' => array(),
   );
 
-  // Exported permission: create feed content
-  $permissions['create feed content'] = array(
-    'name' => 'create feed content',
-    'roles' => array(),
-  );
-
   // Exported permission: create feedback_loop_report content
   $permissions['create feedback_loop_report content'] = array(
     'name' => 'create feedback_loop_report content',

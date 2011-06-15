@@ -373,11 +373,10 @@ function socketlabs_feature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'socketlabs/failed_mail';
-  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Failed Mail';
-  $handler->display->display_options['menu']['description'] = 'Failed Mail reports ';
   $handler->display->display_options['menu']['weight'] = '1';
-  $handler->display->display_options['menu']['name'] = 'menu-socketlabs';
+  $handler->display->display_options['menu']['name'] = 'features';
   $handler->display->display_options['tab_options']['type'] = 'tab';
   $handler->display->display_options['tab_options']['title'] = 'Failed Mail';
   $handler->display->display_options['tab_options']['weight'] = '1';
@@ -426,6 +425,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -499,7 +499,7 @@ function socketlabs_feature_views_default_views() {
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 1;
-  $handler->display->display_options['style_options']['empty_table'] = 1;
+  $handler->display->display_options['style_options']['empty_table'] = 0;
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -795,6 +795,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -998,6 +999,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_datetime_value']['id'] = 'field_datetime_value';
   $handler->display->display_options['filters']['field_datetime_value']['table'] = 'field_data_field_datetime';
   $handler->display->display_options['filters']['field_datetime_value']['field'] = 'field_datetime_value';
+  $handler->display->display_options['filters']['field_datetime_value']['operator'] = 'contains';
   $handler->display->display_options['filters']['field_datetime_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_datetime_value']['expose']['operator_id'] = 'field_datetime_value_op';
   $handler->display->display_options['filters']['field_datetime_value']['expose']['label'] = 'Filter: Date/Time';
@@ -1005,6 +1007,18 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_datetime_value']['expose']['identifier'] = 'field_datetime_value';
   $handler->display->display_options['filters']['field_datetime_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_datetime_value']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Fields: Original Recipient (field_original_recipient) - value */
+  $handler->display->display_options['filters']['field_original_recipient_value']['id'] = 'field_original_recipient_value';
+  $handler->display->display_options['filters']['field_original_recipient_value']['table'] = 'field_data_field_original_recipient';
+  $handler->display->display_options['filters']['field_original_recipient_value']['field'] = 'field_original_recipient_value';
+  $handler->display->display_options['filters']['field_original_recipient_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_original_recipient_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator_id'] = 'field_original_recipient_value_op';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['label'] = 'Filter: Original Recipient';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator'] = 'field_original_recipient_value_op';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = FALSE;
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
@@ -1012,7 +1026,7 @@ function socketlabs_feature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'socketlabs/openclick_messages';
-  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Open/Click Messages';
   $handler->display->display_options['menu']['weight'] = '5';
   $handler->display->display_options['tab_options']['type'] = 'tab';
@@ -1039,6 +1053,7 @@ function socketlabs_feature_views_default_views() {
     t('Mailing Id'),
     t('Message Id'),
     t('Filter: Date/Time'),
+    t('Filter: Original Recipient'),
     t('Block'),
     t('Page'),
   );
@@ -1061,6 +1076,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -1405,7 +1421,7 @@ function socketlabs_feature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'socketlabs/processed_messages';
-  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Processed Messages';
   $handler->display->display_options['menu']['weight'] = '3';
   $handler->display->display_options['tab_options']['type'] = 'tab';
@@ -1457,6 +1473,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';

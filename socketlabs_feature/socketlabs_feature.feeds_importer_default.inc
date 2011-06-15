@@ -72,7 +72,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
         'content_type' => 'failed_mail_node',
-        'expire' => '31536000',
+        'expire' => '300',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -137,7 +137,7 @@ function socketlabs_feature_feeds_importer_default() {
     ),
     'content_type' => 'xml_failed_feed',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '300',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 1,
@@ -203,7 +203,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
         'content_type' => 'feedback_loop_report',
-        'expire' => '-1',
+        'expire' => '300',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -247,13 +247,13 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '0',
+        'update_existing' => '1',
         'input_format' => 'plain_text',
       ),
     ),
     'content_type' => 'xml_feedback_loop_report',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '300',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
@@ -319,7 +319,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
         'content_type' => 'messages_open_click_node',
-        'expire' => '-1',
+        'expire' => '300',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -363,13 +363,13 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '0',
+        'update_existing' => '1',
         'input_format' => 'plain_text',
       ),
     ),
     'content_type' => 'xml_open_click',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '300',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
@@ -441,7 +441,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
         'content_type' => 'messages_processed_node',
-        'expire' => '-1',
+        'expire' => '300',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -495,13 +495,13 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '0',
+        'update_existing' => '1',
         'input_format' => 'plain_text',
       ),
     ),
     'content_type' => 'xml_messages_processed',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '300',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
@@ -564,7 +564,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
         'content_type' => 'messages_queued_node',
-        'expire' => '-1',
+        'expire' => '300',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -603,13 +603,13 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '0',
+        'update_existing' => '1',
         'input_format' => 'plain_text',
       ),
     ),
     'content_type' => 'xml_messages_queued',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '300',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,
