@@ -1,0 +1,30 @@
+This is a project to retrieve email status information using the SocketLabs API.
+
+For examples from SocketLabs themselves, refer to their github repo: https://github.com/socketlabs/
+
+------------------------------
+
+Set up for the feeds:
+	Upon installation, tabs will appear at the top of the home page. Each of these tabs
+	refers to different feeds, or different API calls. You can click on a tab, click import,
+	and enter the URL required for the API call. The format for the URL should be something
+	like: https://username:password@api.socketlabs.com/...
+	You can refer to https://www.socketlabs.com/od/api for the API reference.
+
+------------------------------
+
+Currently the importing/expiring of nodes requires a few changes to the Feeds module.
+These changes are all minor, mostly they consist of adding an option to import/expire 
+every 5 minutes. The changes needed are as follows:
+
+Changes to Feeds module:
+
+  In FeedsImporter.inc
+    Line 93 changed to: $job[‘period’]=$this->processor->expiryTime();
+    Line 242 changed expire_period to 300
+    Line 279 added 300 to array
+
+  In FeedsNodeProcessor.inc
+    Line 152 added 300 to array
+
+------------------------------
