@@ -120,16 +120,6 @@ function socketlabs_feature_feeds_importer_default() {
             'target' => 'field_accountid',
             'unique' => FALSE,
           ),
-          9 => array(
-            'source' => 'xpathparser:10',
-            'target' => 'guid',
-            'unique' => FALSE,
-          ),
-          10 => array(
-            'source' => 'xpathparser:11',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
         ),
         'update_existing' => '1',
         'input_format' => 'plain_text',
