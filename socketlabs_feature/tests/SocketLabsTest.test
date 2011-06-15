@@ -21,29 +21,11 @@ class SocketLabsTestCase extends DrupalWebTestCase {
   	  "access administration pages",
       "access all views",
       "access content",
-      "access content overview",
-      "access dashboard",
-      "administer actions",
-      "administer content types",
       "administer features",
       "administer feeds",
       "administer feeds_tamper",
       "administer nodes",
-      "administer search",
-      "administer site configuration",
-      "administer software updates",
-      "administer themes",
-      "administer url aliases",
-      "administer views",
       "bypass node access",
-      "clear failed_mail_importer feeds",
-      "clear feed feeds",
-      "clear feedback_loop_importer feeds",
-      "clear messages_open_click_importer feeds",
-      "clear messages_processed_importer feeds",
-      "clear messages_queued_importer feeds",
-      "clear node feeds",
-      "clear user feeds",
       "create failed_mail_node content",
       "create feed content",
       "create feedback_loop_report content",
@@ -51,7 +33,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "create messages_processed_node content",
       "create messages_queued_node content",
       "create page content",
-      "create url aliases",
       "create xml_failed_feed content",
       "create xml_feedback_loop_report content",
       "create xml_messages_processed content",
@@ -68,7 +49,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "delete any xml_messages_processed content",
       "delete any xml_messages_queued content",
       "delete any xml_open_click content",
-      "delete revisions",
       "edit any failed_mail_node content",
       "edit any feedback_loop_report content",
       "edit any messages_open_click_node content",
@@ -87,16 +67,7 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "import messages_processed_importer feeds",
       "import messages_queued_importer feeds",
       "import node feeds",
-      "import user feeds",
-      "manage features",
-      "revert revisions",
       "search content",
-      "use advanced search",
-      "use text format filtered_html",
-      "use text format full_html",
-      "use views exporter",
-      "view revisions",
-      "view the administration theme",
       ));
       $this->drupalLogin($admin_user);
   }
@@ -114,14 +85,20 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertLink(t('Open/Click Mail'), 0, t('The OPEN/CLICK MAIL tab is present'));
     $this->assertLink(t('Import'), 0, t('The user has permission to import feeds'));
     
+    
+    
     //Tests the Failed Mail tab and search fields
     $this->clickLink(t('Failed Mail'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
     $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
     $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
     $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -130,7 +107,35 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoText(t('Report Type'), t('No results should be present for this query, as no results are present'));
+    $this->assertNoRaw(t('views-table'), t('No results should be present for this query, as no results are present'));
+    
+    
+    //Tests the Feedback Loop Mail tab and search fields
+    $this->clickLink(t('Feedback Loop Mail'));
+    $this->assertResponse(200, t('The FEEDBACK LOOP MAIL tab was loaded properly'));
+    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present from Date/Time filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
+    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
+    $this->assertText(t('Filter: Original Recipient'), t('The ORIGINAL RECIPIENT filter is present'));
+    $this->assertOptionSelected(t('edit-field-original-recipient-value-op'), t('contains'), t('Select is present for Original Recipient filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-original-recipient-value'), '', t('The original recipient input field is present'));
+    $this->assertText(t('Filter: Type'), t('The TYPE filter is present'));
+    $this->assertOptionSelected(t('edit-field-type-value-op'), t('='), t('Select is present for Type filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-type-value'), '', t('The type input field is present'));
+    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
+    
+    $edit = array (
+      'field_original_recipient_value' => $this->randomName(20),
+      'field_fromaddress_value' => $this->randomName(20),
+      'field_datetime_value' => $this->randomName(20),
+      'field_type_value' => $this->randomName(20),
+    );
+    $this->drupalPost(NULL, $edit, t('Apply'));
+    $this->assertResponse(200, t('The query was successfully passed and processed'));
+    $this->assertNoRaw(t('views-table'), t('No results should be present for this query, as no results are present'));
     
     //Tests the Processed Messages tab and search fields
     
@@ -138,10 +143,14 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertResponse(200, t('The PROCESSED MESSAGES tab was loaded properly'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
     $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
     $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
     $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -150,7 +159,7 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoText(t('Report Type'), t('No results should be present for this query'));
+    $this->assertNoRaw(t('views-table'), t('No results should be present for this query'));
     
     //Tests the Queued Messages tab and search fields
     
@@ -158,10 +167,14 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertResponse(200, t('The QUEUED MESSAGES tab was loaded properly'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
     $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The sent from input field is present'));
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
     $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
     $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
@@ -170,14 +183,17 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoText(t('Report Type'), t('No results should be present for this query'));
+    $this->assertNoRaw(t('views-table'), t('No results should be present for this query'));
     
     //Tests the Open/Click Mail tab and search field
     $this->clickLink(t('Open/Click Mail'));
     $this->assertResponse(200, t('The OPEN/CLICK tab was loaded properly'));
     $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('='), t('The select is present, and default is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The input field is present'));
+    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('The select is present, and default is correct'));
+    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertText(t('Filter: Original Recipient'), t('The ORIGINAL RECIPIENT filter is present'));
+    $this->assertOptionSelected(t('edit-field-original-recipient-value-op'), t('contains'), t('Select is present for Original Recipient filter, and default filter is correct'));
+    $this->assertFieldById(t('edit-field-original-recipient-value'), '', t('The original recipient input field is present'));
     
     
     
@@ -207,8 +223,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('FailureCode'), t('The field_failcode is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('Reason'), t('The field_reason is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('AccountId'), t('The field_acountid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser10'), '', t('The field guid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser11'), '', t('The field_datetime is present and set to the proper dafault setting'));
     
     
     
@@ -336,6 +350,7 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     //Tests the error generated by an api url without credentials
     $edit= array(
       'feeds[FeedsHTTPFetcher][source]' => 'https://api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
+      'title' => $this->randomName(20),
     );
     $this->drupalGet('node/add/xml-feedback-loop-report');
     $this->drupalPost(NULL, $edit, t('Save'));
