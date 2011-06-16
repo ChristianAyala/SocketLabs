@@ -73,38 +73,25 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '9',
       ),
     ),
   );
 
-  // Exported field: 'node-failed_mail_node-field_datetime'
-  $fields['node-failed_mail_node-field_datetime'] = array(
+  // Exported field: 'node-failed_mail_node-field_count'
+  $fields['node-failed_mail_node-field_count'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_datetime',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '22',
-      ),
+      'field_name' => 'field_count',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'number_integer',
     ),
     'field_instance' => array(
       'bundle' => 'failed_mail_node',
@@ -114,10 +101,15 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 10,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -127,21 +119,106 @@ function socketlabs_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_datetime',
-      'label' => 'Date/Time',
+      'field_name' => 'field_count',
+      'label' => 'Count',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '11',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-failed_mail_node-field_date'
+  $fields['node-failed_mail_node-field_date'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
+      'settings' => array(
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 'second',
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
+      ),
+      'translatable' => '1',
+      'type' => 'date',
+    ),
+    'field_instance' => array(
+      'bundle' => 'failed_mail_node',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 11,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_date',
+      'label' => 'Date',
+      'required' => 0,
+      'settings' => array(
+        'default_format' => 'short',
+        'default_value' => 'blank',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
+        'module' => 'date',
         'settings' => array(
-          'size' => '22',
+          'increment' => 1,
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
         ),
-        'type' => 'text_textfield',
-        'weight' => '-4',
+        'type' => 'date_text',
+        'weight' => '1',
       ),
     ),
   );
@@ -202,7 +279,7 @@ function socketlabs_feature_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '2',
+        'weight' => '7',
       ),
     ),
   );
@@ -263,7 +340,7 @@ function socketlabs_feature_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '1',
+        'weight' => '6',
       ),
     ),
   );
@@ -331,7 +408,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '0',
+        'weight' => '5',
       ),
     ),
   );
@@ -399,7 +476,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-2',
+        'weight' => '3',
       ),
     ),
   );
@@ -467,7 +544,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-3',
+        'weight' => '2',
       ),
     ),
   );
@@ -535,7 +612,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '8',
       ),
     ),
   );
@@ -607,7 +684,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '10',
       ),
     ),
   );
@@ -675,7 +752,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '4',
       ),
     ),
   );
@@ -748,46 +825,52 @@ function socketlabs_feature_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-feedback_loop_report-field_datetime'
-  $fields['node-feedback_loop_report-field_datetime'] = array(
+  // Exported field: 'node-feedback_loop_report-field_date'
+  $fields['node-feedback_loop_report-field_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_datetime',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
       'settings' => array(
-        'max_length' => '22',
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 'second',
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
       ),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'date',
     ),
     'field_instance' => array(
       'bundle' => 'feedback_loop_report',
-      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 1,
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 9,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -797,21 +880,31 @@ function socketlabs_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_datetime',
-      'label' => 'Date/Time',
+      'field_name' => 'field_date',
+      'label' => 'Date',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'default_format' => 'short',
+        'default_value' => 'blank',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
+        'module' => 'date',
         'settings' => array(
-          'size' => '60',
+          'increment' => 1,
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
         ),
-        'type' => 'text_textfield',
-        'weight' => '-1',
+        'type' => 'date_text',
+        'weight' => '2',
       ),
     ),
   );
@@ -879,7 +972,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -947,7 +1040,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1015,7 +1108,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-3',
+        'weight' => '1',
       ),
     ),
   );
@@ -1083,7 +1176,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -1223,7 +1316,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -1291,7 +1384,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -1364,46 +1457,52 @@ function socketlabs_feature_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-messages_open_click_node-field_datetime'
-  $fields['node-messages_open_click_node-field_datetime'] = array(
+  // Exported field: 'node-messages_open_click_node-field_date'
+  $fields['node-messages_open_click_node-field_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_datetime',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
       'settings' => array(
-        'max_length' => '22',
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 'second',
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
       ),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'date',
     ),
     'field_instance' => array(
       'bundle' => 'messages_open_click_node',
-      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 9,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1413,21 +1512,31 @@ function socketlabs_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_datetime',
-      'label' => 'Date/Time',
+      'field_name' => 'field_date',
+      'label' => 'Date',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'default_format' => 'short',
+        'default_value' => 'blank',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
+        'module' => 'date',
         'settings' => array(
-          'size' => '60',
+          'increment' => 1,
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
         ),
-        'type' => 'text_textfield',
-        'weight' => '-3',
+        'type' => 'date_text',
+        'weight' => '1',
       ),
     ),
   );
@@ -1488,7 +1597,7 @@ function socketlabs_feature_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -1556,7 +1665,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -1624,7 +1733,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '2',
       ),
     ),
   );
@@ -1692,7 +1801,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1760,7 +1869,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -1832,7 +1941,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '9',
       ),
     ),
   );
@@ -1900,7 +2009,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -1968,51 +2077,57 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '11',
+        'weight' => '10',
       ),
     ),
   );
 
-  // Exported field: 'node-messages_processed_node-field_datetime'
-  $fields['node-messages_processed_node-field_datetime'] = array(
+  // Exported field: 'node-messages_processed_node-field_date'
+  $fields['node-messages_processed_node-field_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_datetime',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
       'settings' => array(
-        'max_length' => '22',
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 'second',
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
       ),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'date',
     ),
     'field_instance' => array(
       'bundle' => 'messages_processed_node',
-      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 1,
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 11,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2022,21 +2137,31 @@ function socketlabs_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_datetime',
-      'label' => 'Date/Time',
+      'field_name' => 'field_date',
+      'label' => 'Date',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'default_format' => 'short',
+        'default_value' => 'blank',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
+        'module' => 'date',
         'settings' => array(
-          'size' => '60',
+          'increment' => 1,
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
         ),
-        'type' => 'text_textfield',
-        'weight' => '-1',
+        'type' => 'date_text',
+        'weight' => '2',
       ),
     ),
   );
@@ -2097,7 +2222,7 @@ function socketlabs_feature_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '0',
+        'weight' => '3',
       ),
     ),
   );
@@ -2165,7 +2290,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -2233,7 +2358,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '5',
       ),
     ),
   );
@@ -2301,7 +2426,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -2369,7 +2494,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-3',
+        'weight' => '1',
       ),
     ),
   );
@@ -2430,7 +2555,7 @@ function socketlabs_feature_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -2502,7 +2627,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '13',
+        'weight' => '11',
       ),
     ),
   );
@@ -2570,7 +2695,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -2706,51 +2831,57 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
 
-  // Exported field: 'node-messages_queued_node-field_datetime'
-  $fields['node-messages_queued_node-field_datetime'] = array(
+  // Exported field: 'node-messages_queued_node-field_date'
+  $fields['node-messages_queued_node-field_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_datetime',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
       'settings' => array(
-        'max_length' => '22',
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 'second',
+          'year' => 'year',
+        ),
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
       ),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'date',
     ),
     'field_instance' => array(
       'bundle' => 'messages_queued_node',
-      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 8,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2760,21 +2891,31 @@ function socketlabs_feature_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_datetime',
-      'label' => 'Date/Time',
+      'field_name' => 'field_date',
+      'label' => 'Date',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'default_format' => 'short',
+        'default_value' => 'blank',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
+        'module' => 'date',
         'settings' => array(
-          'size' => '60',
+          'increment' => 1,
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
         ),
-        'type' => 'text_textfield',
-        'weight' => '-3',
+        'type' => 'date_text',
+        'weight' => '1',
       ),
     ),
   );
@@ -2842,7 +2983,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -2910,7 +3051,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -2978,7 +3119,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '-1',
+        'weight' => '2',
       ),
     ),
   );
@@ -3111,7 +3252,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '11',
+        'weight' => '8',
       ),
     ),
   );
@@ -3179,7 +3320,7 @@ function socketlabs_feature_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
@@ -3260,7 +3401,8 @@ function socketlabs_feature_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Account Id');
   t('Body');
-  t('Date/Time');
+  t('Count');
+  t('Date');
   t('Disposition');
   t('Event Type');
   t('Failure Code');
