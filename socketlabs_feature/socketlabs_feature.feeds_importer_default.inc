@@ -38,6 +38,8 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:7' => 'FailureCode',
           'xpathparser:8' => 'Reason',
           'xpathparser:9' => 'AccountId',
+          'xpathparser:10' => '//totalCount',
+          'xpathparser:11' => 'DateTime',
         ),
         'rawXML' => array(
           'xpathparser:1' => 0,
@@ -49,6 +51,8 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:7' => 0,
           'xpathparser:8' => 0,
           'xpathparser:9' => 0,
+          'xpathparser:10' => 0,
+          'xpathparser:11' => 0,
         ),
         'context' => '//item',
         'exp' => array(
@@ -64,6 +68,8 @@ function socketlabs_feature_feeds_importer_default() {
             'xpathparser:7' => 'xpathparser:7',
             'xpathparser:8' => 'xpathparser:8',
             'xpathparser:9' => 'xpathparser:9',
+            'xpathparser:10' => 'xpathparser:10',
+            'xpathparser:11' => 'xpathparser:11',
           ),
         ),
       ),
@@ -76,48 +82,53 @@ function socketlabs_feature_feeds_importer_default() {
         'author' => 0,
         'mappings' => array(
           0 => array(
-            'source' => 'xpathparser:1',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
-          1 => array(
             'source' => 'xpathparser:2',
             'target' => 'field_messageid',
             'unique' => FALSE,
           ),
-          2 => array(
+          1 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_mailingid',
             'unique' => FALSE,
           ),
-          3 => array(
+          2 => array(
             'source' => 'xpathparser:4',
             'target' => 'field_toaddress',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'xpathparser:5',
             'target' => 'field_fromaddress',
             'unique' => FALSE,
           ),
-          5 => array(
+          4 => array(
             'source' => 'xpathparser:6',
             'target' => 'field_failtype',
             'unique' => FALSE,
           ),
-          6 => array(
+          5 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_failcode',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'xpathparser:8',
             'target' => 'field_reason',
             'unique' => FALSE,
           ),
-          8 => array(
+          7 => array(
             'source' => 'xpathparser:9',
             'target' => 'field_accountid',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'xpathparser:10',
+            'target' => 'field_count',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'xpathparser:11',
+            'target' => 'field_date:start',
             'unique' => FALSE,
           ),
         ),
@@ -154,23 +165,23 @@ function socketlabs_feature_feeds_importer_default() {
       'config' => array(
         'sources' => array(
           'xpathparser:1' => 'MessageId',
-          'xpathparser:2' => 'DateTime',
           'xpathparser:3' => 'FromAddress',
           'xpathparser:4' => 'MailingId',
           'xpathparser:5' => 'OriginalRecipient',
           'xpathparser:6' => 'Type',
           'xpathparser:7' => 'UserAgent',
           'xpathparser:8' => 'AccountId',
+          'xpathparser:9' => 'DateTime',
         ),
         'rawXML' => array(
           'xpathparser:1' => 0,
-          'xpathparser:2' => 0,
           'xpathparser:3' => 0,
           'xpathparser:4' => 0,
           'xpathparser:5' => 0,
           'xpathparser:6' => 0,
           'xpathparser:7' => 0,
           'xpathparser:8' => 0,
+          'xpathparser:9' => 0,
         ),
         'context' => '//item',
         'exp' => array(
@@ -178,13 +189,13 @@ function socketlabs_feature_feeds_importer_default() {
           'debug' => array(
             'context' => 'context',
             'xpathparser:1' => 'xpathparser:1',
-            'xpathparser:2' => 'xpathparser:2',
             'xpathparser:3' => 'xpathparser:3',
             'xpathparser:4' => 'xpathparser:4',
             'xpathparser:5' => 'xpathparser:5',
             'xpathparser:6' => 'xpathparser:6',
             'xpathparser:7' => 'xpathparser:7',
             'xpathparser:8' => 'xpathparser:8',
+            'xpathparser:9' => 'xpathparser:9',
           ),
         ),
       ),
@@ -202,38 +213,38 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
           1 => array(
-            'source' => 'xpathparser:2',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
-          2 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_fromaddress',
             'unique' => FALSE,
           ),
-          3 => array(
+          2 => array(
             'source' => 'xpathparser:4',
             'target' => 'field_mailingid',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'xpathparser:5',
             'target' => 'field_original_recipient',
             'unique' => FALSE,
           ),
-          5 => array(
+          4 => array(
             'source' => 'xpathparser:6',
             'target' => 'field_type',
             'unique' => FALSE,
           ),
-          6 => array(
+          5 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_user_agent',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'xpathparser:8',
             'target' => 'field_accountid',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'xpathparser:9',
+            'target' => 'field_date:start',
             'unique' => FALSE,
           ),
         ),
@@ -269,7 +280,6 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsXPathParserXML',
       'config' => array(
         'sources' => array(
-          'xpathparser:1' => 'DateTime',
           'xpathparser:2' => 'MessageId',
           'xpathparser:3' => 'MailingId',
           'xpathparser:4' => 'OriginalRecipient',
@@ -277,9 +287,9 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:6' => 'URL',
           'xpathparser:7' => 'RemoteIp',
           'xpathparser:8' => 'AccountId',
+          'xpathparser:9' => 'DateTime',
         ),
         'rawXML' => array(
-          'xpathparser:1' => 0,
           'xpathparser:2' => 0,
           'xpathparser:3' => 0,
           'xpathparser:4' => 0,
@@ -287,13 +297,13 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:6' => 0,
           'xpathparser:7' => 0,
           'xpathparser:8' => 0,
+          'xpathparser:9' => 0,
         ),
         'context' => '//item',
         'exp' => array(
           'errors' => 1,
           'debug' => array(
             'context' => 'context',
-            'xpathparser:1' => 'xpathparser:1',
             'xpathparser:2' => 'xpathparser:2',
             'xpathparser:3' => 'xpathparser:3',
             'xpathparser:4' => 'xpathparser:4',
@@ -301,6 +311,7 @@ function socketlabs_feature_feeds_importer_default() {
             'xpathparser:6' => 'xpathparser:6',
             'xpathparser:7' => 'xpathparser:7',
             'xpathparser:8' => 'xpathparser:8',
+            'xpathparser:9' => 'xpathparser:9',
           ),
         ),
       ),
@@ -313,43 +324,43 @@ function socketlabs_feature_feeds_importer_default() {
         'author' => 0,
         'mappings' => array(
           0 => array(
-            'source' => 'xpathparser:1',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
-          1 => array(
             'source' => 'xpathparser:2',
             'target' => 'field_messageid',
             'unique' => FALSE,
           ),
-          2 => array(
+          1 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_mailingid',
             'unique' => FALSE,
           ),
-          3 => array(
+          2 => array(
             'source' => 'xpathparser:4',
             'target' => 'field_original_recipient',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'xpathparser:5',
             'target' => 'field_eventtype',
             'unique' => FALSE,
           ),
-          5 => array(
+          4 => array(
             'source' => 'xpathparser:6',
             'target' => 'field_url',
             'unique' => FALSE,
           ),
-          6 => array(
+          5 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_remote_ip',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'xpathparser:8',
             'target' => 'field_accountid',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'xpathparser:9',
+            'target' => 'field_date:start',
             'unique' => FALSE,
           ),
         ),
@@ -385,9 +396,7 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsXPathParserXML',
       'config' => array(
         'sources' => array(
-          'xpathparser:0' => 'AccountId',
           'xpathparser:1' => 'MessageId',
-          'xpathparser:2' => 'DateTime',
           'xpathparser:3' => 'Disposition',
           'xpathparser:4' => 'FromAddress',
           'xpathparser:5' => 'LocalIp',
@@ -395,11 +404,11 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:7' => 'MessageSize',
           'xpathparser:8' => 'Response',
           'xpathparser:9' => 'ToAddress',
+          'xpathparser:10' => 'AccountId',
+          'xpathparser:11' => 'DateTime',
         ),
         'rawXML' => array(
-          'xpathparser:0' => 0,
           'xpathparser:1' => 0,
-          'xpathparser:2' => 0,
           'xpathparser:3' => 0,
           'xpathparser:4' => 0,
           'xpathparser:5' => 0,
@@ -407,15 +416,15 @@ function socketlabs_feature_feeds_importer_default() {
           'xpathparser:7' => 0,
           'xpathparser:8' => 0,
           'xpathparser:9' => 0,
+          'xpathparser:10' => 0,
+          'xpathparser:11' => 0,
         ),
         'context' => '//item',
         'exp' => array(
           'errors' => 1,
           'debug' => array(
             'context' => 'context',
-            'xpathparser:0' => 'xpathparser:0',
             'xpathparser:1' => 'xpathparser:1',
-            'xpathparser:2' => 'xpathparser:2',
             'xpathparser:3' => 'xpathparser:3',
             'xpathparser:4' => 'xpathparser:4',
             'xpathparser:5' => 'xpathparser:5',
@@ -423,6 +432,8 @@ function socketlabs_feature_feeds_importer_default() {
             'xpathparser:7' => 'xpathparser:7',
             'xpathparser:8' => 'xpathparser:8',
             'xpathparser:9' => 'xpathparser:9',
+            'xpathparser:10' => 'xpathparser:10',
+            'xpathparser:11' => 'xpathparser:11',
           ),
         ),
       ),
@@ -440,48 +451,48 @@ function socketlabs_feature_feeds_importer_default() {
             'unique' => FALSE,
           ),
           1 => array(
-            'source' => 'xpathparser:2',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
-          2 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_disposition',
             'unique' => FALSE,
           ),
-          3 => array(
+          2 => array(
             'source' => 'xpathparser:4',
             'target' => 'field_fromaddress',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'xpathparser:5',
             'target' => 'field_localip',
             'unique' => FALSE,
           ),
-          5 => array(
+          4 => array(
             'source' => 'xpathparser:6',
             'target' => 'field_mailingid',
             'unique' => FALSE,
           ),
-          6 => array(
+          5 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_messagesize',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'xpathparser:8',
             'target' => 'field_response',
             'unique' => FALSE,
           ),
-          8 => array(
+          7 => array(
             'source' => 'xpathparser:9',
             'target' => 'field_toaddress',
             'unique' => FALSE,
           ),
-          9 => array(
+          8 => array(
             'source' => 'xpathparser:10',
             'target' => 'field_accountid',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'xpathparser:11',
+            'target' => 'field_date:start',
             'unique' => FALSE,
           ),
         ),
@@ -517,35 +528,35 @@ function socketlabs_feature_feeds_importer_default() {
       'plugin_key' => 'FeedsXPathParserXML',
       'config' => array(
         'sources' => array(
-          'xpathparser:1' => 'DateTime',
           'xpathparser:2' => 'MessageId',
           'xpathparser:3' => 'FromAddress',
           'xpathparser:4' => 'MailingId',
           'xpathparser:5' => 'MessageSize',
           'xpathparser:6' => 'ToAddress',
           'xpathparser:7' => 'AccountId',
+          'xpathparser:8' => 'DateTime',
         ),
         'rawXML' => array(
-          'xpathparser:1' => 0,
           'xpathparser:2' => 0,
           'xpathparser:3' => 0,
           'xpathparser:4' => 0,
           'xpathparser:5' => 0,
           'xpathparser:6' => 0,
           'xpathparser:7' => 0,
+          'xpathparser:8' => 0,
         ),
         'context' => '//item',
         'exp' => array(
           'errors' => 1,
           'debug' => array(
             'context' => 'context',
-            'xpathparser:1' => 'xpathparser:1',
             'xpathparser:2' => 'xpathparser:2',
             'xpathparser:3' => 'xpathparser:3',
             'xpathparser:4' => 'xpathparser:4',
             'xpathparser:5' => 'xpathparser:5',
             'xpathparser:6' => 'xpathparser:6',
             'xpathparser:7' => 'xpathparser:7',
+            'xpathparser:8' => 'xpathparser:8',
           ),
         ),
       ),
@@ -558,38 +569,38 @@ function socketlabs_feature_feeds_importer_default() {
         'author' => 0,
         'mappings' => array(
           0 => array(
-            'source' => 'xpathparser:1',
-            'target' => 'field_datetime',
-            'unique' => FALSE,
-          ),
-          1 => array(
             'source' => 'xpathparser:2',
             'target' => 'field_messageid',
             'unique' => FALSE,
           ),
-          2 => array(
+          1 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_fromaddress',
             'unique' => FALSE,
           ),
-          3 => array(
+          2 => array(
             'source' => 'xpathparser:4',
             'target' => 'field_mailingid',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'xpathparser:5',
             'target' => 'field_messagesize',
             'unique' => FALSE,
           ),
-          5 => array(
+          4 => array(
             'source' => 'xpathparser:6',
             'target' => 'field_toaddress',
             'unique' => FALSE,
           ),
-          6 => array(
+          5 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_accountid',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'xpathparser:8',
+            'target' => 'field_date:start',
             'unique' => FALSE,
           ),
         ),

@@ -788,6 +788,15 @@ function socketlabs_feature_user_default_permissions() {
     'module' => 'views_export',
   );
 
+  // Exported permission: view date repeats
+  $permissions['view date repeats'] = array(
+    'name' => 'view date repeats',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'date',
+  );
+
   // Exported permission: view revisions
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
