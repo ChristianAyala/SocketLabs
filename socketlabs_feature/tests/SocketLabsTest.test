@@ -95,15 +95,25 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertText(t('Filter: Start Date'), t('The START DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
+    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
     $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
       'field_fromaddress_value' => $this->randomName(20),
-      'field_datetime_value' => $this->randomName(20),
+      'field_date_value[value][year]' => '2011',
+      'field_date_value[value][month]' => '3',
+      'field_date_value[value][day]' => '15',
+      'field_date_value_1[value][year]' => '2011',
+      'field_date_value_1[value][month]' => '9',
+      'field_date_value_1[value][day]' => '20',
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
@@ -113,9 +123,14 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     //Tests the Feedback Loop Mail tab and search fields
     $this->clickLink(t('Feedback Loop Mail'));
     $this->assertResponse(200, t('The FEEDBACK LOOP MAIL tab was loaded properly'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present from Date/Time filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertText(t('Filter: Start Date'), t('The START DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
+    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
     $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
     $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
@@ -130,7 +145,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $edit = array (
       'field_original_recipient_value' => $this->randomName(20),
       'field_fromaddress_value' => $this->randomName(20),
-      'field_datetime_value' => $this->randomName(20),
       'field_type_value' => $this->randomName(20),
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
@@ -147,15 +161,24 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
+    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
     $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
     $edit = array (
       'field_toaddress_value' => $this->randomName(20),
       'field_fromaddress_value' => $this->randomName(20),
-      'field_datetime_value' => $this->randomName(20),
+      'field_date_value[value][year]' => '2011',
+      'field_date_value[value][month]' => '3',
+      'field_date_value[value][day]' => '15',
+      'field_date_value_1[value][year]' => '2011',
+      'field_date_value_1[value][month]' => '9',
+      'field_date_value_1[value][day]' => '20',
     );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
@@ -171,16 +194,15 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
     $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('Select is present for Date/Time filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
+    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
     $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
     
-    $edit = array (
-      'field_toaddress_value' => $this->randomName(20),
-      'field_fromaddress_value' => $this->randomName(20),
-      'field_datetime_value' => $this->randomName(20),
-    );
     $this->drupalPost(NULL, $edit, t('Apply'));
     $this->assertResponse(200, t('The query was successfully passed and processed'));
     $this->assertNoRaw(t('views-table'), t('No results should be present for this query'));
@@ -188,9 +210,13 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     //Tests the Open/Click Mail tab and search field
     $this->clickLink(t('Open/Click Mail'));
     $this->assertResponse(200, t('The OPEN/CLICK tab was loaded properly'));
-    $this->assertText(t('Filter: Date/Time'), t('The DATE/TIME filter is present'));
-    $this->assertOptionSelected(t('edit-field-datetime-value-op'), t('contains'), t('The select is present, and default is correct'));
-    $this->assertFieldById(t('edit-field-datetime-value'), '', t('The date/time input field is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
+    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
+    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
     $this->assertText(t('Filter: Original Recipient'), t('The ORIGINAL RECIPIENT filter is present'));
     $this->assertOptionSelected(t('edit-field-original-recipient-value-op'), t('contains'), t('Select is present for Original Recipient filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-original-recipient-value'), '', t('The original recipient input field is present'));
@@ -214,7 +240,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
     $this->assertText(t('XPath Parser Settings'), t('The user can edit the XPath parser settings'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser1'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser2'), t('MessageId'), t('The field_messageId is present and set to the proper default setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser3'), t('MailingId'), t('The field_mailingid is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser4'), t('ToAddress'), t('The field_toaddress is present and set to the proper dafault setting'));
@@ -223,6 +248,9 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('FailureCode'), t('The field_failcode is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('Reason'), t('The field_reason is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('AccountId'), t('The field_acountid is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser10'), t('//totalCount'), t('The field_count is present and set to the proper default setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser11'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
+    
     
     
     
@@ -330,13 +358,13 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser1'), t('MessageId'), t('The field_messageid is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser2'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser3'), t('FromAddress'), t('The field_fromaddress is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser4'), t('MailingId'), t('The field_mailingid is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser5'), t('OriginalRecipient'), t('The field_original_recipient is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser6'), t('Type'), t('The field_type is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('UserAgent'), t('The field_user_agent is present and set to the proper dafault setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('AccountId'), t('The field_accountid is present and set to the proper dafault setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
     
     //Tests the error generated by a random url entered in the url field
     $edit = array(
