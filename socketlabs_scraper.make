@@ -35,6 +35,7 @@ projects[drupal][version] = 7
 ; --------
 projects[contemplate][subdir] = contrib
 projects[email][subdir] = contrib
+projects[date][subdir] = contrib
 projects[ctools][subdir] = contrib
 projects[features][subdir] = contrib
 projects[imageapi][subdir] = contrib
