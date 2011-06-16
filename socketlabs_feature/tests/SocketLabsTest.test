@@ -292,7 +292,7 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       $node_count += $record->count;
     }
     
-    /*
+    
     //Finally tests the proper API call to the SocketLabs webserver
     //This may need to change if the number of API calls gets too high...
     $edit = array(
@@ -347,7 +347,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       $this->drupalPost(NULL, array(), t('Delete'));
       $this->assertRaw(t('failed mail node <em class="placeholder">'.$title.'</em> has been deleted'), t('The node with nid ' . $nid . ' was properly deleted'));
     }
-    */
     
     
     
