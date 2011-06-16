@@ -24,6 +24,24 @@ function socketlabs_feature_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-50',
   );
+  // Exported menu link: main-menu:node/113
+  $menu_links['main-menu:node/113'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/113',
+    'router_path' => 'node/%',
+    'link_title' => 'SocketLabs Codes',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
   // Exported menu link: main-menu:socketlabs/failed_mail
   $menu_links['main-menu:socketlabs/failed_mail'] = array(
     'menu_name' => 'main-menu',
@@ -122,6 +140,7 @@ function socketlabs_feature_menu_default_menu_links() {
   t('Open/Click Mail');
   t('Processed Messages');
   t('Queued Messages');
+  t('SocketLabs Codes');
 
 
   return $menu_links;
