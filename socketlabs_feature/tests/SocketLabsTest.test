@@ -184,10 +184,8 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     //--------------Testing the Failed Feed Report page----------------//
     $this->clickLink(t('xml failed feed'));
     $this->assertResponse(200, 'The failed feed options page loaded correctly');
-    $this->assertFieldById(t('edit-title'), '', t('The edit title field is present'));
     $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
-    $this->assertText(t('XPath Parser Settings'), t('The user can edit the XPath parser settings'));
-
+    
     $xpath_field_names = array('MessageId', 'MailingId', 'ToAddress', 'FromAddress', 'FailureType', 'FailureCode', 'Reason', 'AccountId', '//totalCount', 'DateTime');
     for($i = 2; $i < 12; $i++) {
       $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-2)]), t('The field '.$xpath_field_names[($i-2)]. ' is present and set to the proper default setting'));
@@ -289,11 +287,11 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     * uncomment this section
     */
     /*
-    $socketlabs_url = array('messagesFailed', 'messagesFblReported');
-    $drupal_create_url = array('xml-failed-feed', 'xml-feedback-loop-report');
-    $drupal_page_url = array('failed_mail','feedback_loop');
-    $drupal_type = array('xml failed feed', 'xml feedback loop feed');
-    $sql_type = array('failed_mail_node','feedback_loop_report');
+    $socketlabs_url = array('messagesFailed', 'messagesFblReported', 'messagesQueued', 'messagesProcessed');
+    $drupal_create_url = array('xml-failed-feed', 'xml-feedback-loop-report', 'xml-messages-queued', 'xml-messages-processed');
+    $drupal_page_url = array('failed_mail','feedback_loop', 'queued_messages', 'processed_messages');
+    $drupal_type = array('xml failed feed', 'xml feedback loop feed', 'xml messages queued', 'xml messages processed');
+    $sql_type = array('failed_mail_node','feedback_loop_report', 'messages_queued_node', 'messages_processed_node');
     
     for($i = 0; $i < count($socketlabs_url); $i++) {
       $this->drupalGet('node/add/'.$drupal_create_url[$i]);
