@@ -19,12 +19,23 @@ every 5 minutes. The changes needed are as follows:
 
 Changes to Feeds module:
 
-  In FeedsImporter.inc
+  In FeedsImporter.inc (includes folder)
     Line 93 changed to: $job[‘period’]=$this->processor->expiryTime();
     Line 242 changed expire_period to 300
     Line 279 added 300 to array
 
-  In FeedsNodeProcessor.inc
+  In FeedsNodeProcessor.inc (plugins folder)
     Line 152 added 300 to array
 
 ------------------------------
+
+In order to have information on some of the codes given back from SocketLabs, there is
+a bit of extra configuration required. 
+
+  1) Create a new Basic Page
+  2) The Title can be whatever you want (I recommend SocketLabs Codes or something
+      similar)
+  3) In the Body, copy and paste the contents of the "SocketLabs Codes" file located
+    in the same git repository as this README.
+  4) URL-Alias: socketlabs/codes
+  5) Save
