@@ -26,6 +26,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'none';
@@ -118,11 +119,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
@@ -138,11 +139,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_date']['element_default_classes'] = 1;
@@ -166,11 +167,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_toaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_default_classes'] = 1;
@@ -186,11 +187,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fromaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_default_classes'] = 1;
@@ -206,11 +207,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_default_classes'] = 1;
@@ -226,11 +227,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_failtype']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_failtype']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_failtype']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_failtype']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_failtype']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_failtype']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_failtype']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_failtype']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_failtype']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_failtype']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_failtype']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_failtype']['element_default_classes'] = 1;
@@ -250,11 +251,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_failcode']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_failcode']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_failcode']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_failcode']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_failcode']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_failcode']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_failcode']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_failcode']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_failcode']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_failcode']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_failcode']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_failcode']['element_default_classes'] = 1;
@@ -274,11 +275,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_reason']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_reason']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_reason']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_reason']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_reason']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_reason']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_reason']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_reason']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_reason']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_reason']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_reason']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_reason']['element_default_classes'] = 1;
@@ -294,11 +295,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_mailingid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_default_classes'] = 1;
@@ -314,11 +315,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messageid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_default_classes'] = 1;
@@ -330,7 +331,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -339,6 +340,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -347,7 +349,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
@@ -356,6 +358,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
+  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -364,7 +367,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Sent To (field_toaddress) - value */
+  /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['table'] = 'field_data_field_toaddress';
   $handler->display->display_options['filters']['field_toaddress_value']['field'] = 'field_toaddress_value';
@@ -373,11 +376,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Fields: Sent From (field_fromaddress) - value */
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
   $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
   $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
   $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
@@ -386,9 +389,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -414,32 +417,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['tab_options']['title'] = 'Failed Mail';
   $handler->display->display_options['tab_options']['weight'] = '1';
   $handler->display->display_options['tab_options']['name'] = 'features';
-  $translatables['failed_messages_view'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Report Type'),
-    t('Date'),
-    t('Sent To'),
-    t('Sent From'),
-    t('Account Id'),
-    t('Failure Type'),
-    t('Failure Code'),
-    t('Reason'),
-    t('Mailing Id'),
-    t('Message Id'),
-    t('Filter: Start Date'),
-    t('Filter: End Date'),
-    t('Filter: Sent To'),
-    t('Filter: Sent From'),
-    t('Block'),
-    t('failed messages block'),
-    t('Page'),
-  );
   $export['failed_messages_view'] = $view;
 
   $view = new view;
@@ -458,6 +435,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -543,11 +521,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
@@ -563,11 +541,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_default_classes'] = 1;
@@ -583,11 +561,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_date']['element_default_classes'] = 1;
@@ -611,11 +589,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_original_recipient']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_original_recipient']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_original_recipient']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['element_default_classes'] = 1;
@@ -631,11 +609,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fromaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_default_classes'] = 1;
@@ -651,11 +629,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_agent']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_user_agent']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_user_agent']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_user_agent']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_user_agent']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_user_agent']['element_default_classes'] = 1;
@@ -671,11 +649,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_type']['element_default_classes'] = 1;
@@ -691,11 +669,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_mailingid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_default_classes'] = 1;
@@ -711,11 +689,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messageid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_default_classes'] = 1;
@@ -727,7 +705,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -736,6 +714,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -744,7 +723,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
@@ -753,6 +732,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
+  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -761,7 +741,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Sent From (field_fromaddress) - value */
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
   $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
   $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
   $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
@@ -770,11 +750,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Fields: Original Recipient (field_original_recipient) - value */
+  /* Filter criterion: Content: Original Recipient (field_original_recipient) */
   $handler->display->display_options['filters']['field_original_recipient_value']['id'] = 'field_original_recipient_value';
   $handler->display->display_options['filters']['field_original_recipient_value']['table'] = 'field_data_field_original_recipient';
   $handler->display->display_options['filters']['field_original_recipient_value']['field'] = 'field_original_recipient_value';
@@ -783,11 +763,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_original_recipient_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator_id'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['label'] = 'Filter: Original Recipient ';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
-  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Fields: Type (field_type) - value */
+  /* Filter criterion: Content: Type (field_type) */
   $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
   $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
   $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
@@ -795,9 +775,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_type_value']['expose']['operator_id'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['label'] = 'Filter: Type';
+  $handler->display->display_options['filters']['field_type_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_type_value']['expose']['operator'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['identifier'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_type_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -817,34 +797,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Feedback Loop';
   $handler->display->display_options['menu']['weight'] = '10';
-  $translatables['feedback_loop_view'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Report Type'),
-    t('Account Id'),
-    t('Date'),
-    t('Original Recipient'),
-    t('Sent From'),
-    t('User Agent'),
-    t('Type'),
-    t('Mailing Id'),
-    t('Message Id'),
-    t('Filter: Start Date'),
-    t('Filter: End Date'),
-    t('Filter: Sent From'),
-    t('Filter: Original Recipient '),
-    t('Filter: Type'),
-    t('Block'),
-    t('Page'),
-  );
   $export['feedback_loop_view'] = $view;
 
   $view = new view;
@@ -863,6 +815,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -877,11 +830,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
@@ -897,11 +850,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_default_classes'] = 1;
@@ -917,11 +870,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_date']['element_default_classes'] = 1;
@@ -945,11 +898,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_original_recipient']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_original_recipient']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_original_recipient']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_original_recipient']['element_default_classes'] = 1;
@@ -965,11 +918,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_eventtype']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_eventtype']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_eventtype']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_eventtype']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_eventtype']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_eventtype']['element_default_classes'] = 1;
@@ -989,11 +942,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_remote_ip']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_remote_ip']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_remote_ip']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_remote_ip']['element_default_classes'] = 1;
@@ -1009,11 +962,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_url']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_url']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_url']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_url']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_url']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_url']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_url']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_url']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_url']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_url']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_url']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_url']['element_default_classes'] = 1;
@@ -1029,11 +982,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_mailingid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_default_classes'] = 1;
@@ -1049,11 +1002,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messageid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_default_classes'] = 1;
@@ -1065,7 +1018,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -1074,6 +1027,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1082,7 +1036,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
@@ -1091,6 +1045,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
+  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1107,7 +1062,7 @@ function socketlabs_feature_views_default_views() {
     'messages_open_click_node' => 'messages_open_click_node',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
-  /* Filter criterion: Fields: Original Recipient (field_original_recipient) - value */
+  /* Filter criterion: Content: Original Recipient (field_original_recipient) */
   $handler->display->display_options['filters']['field_original_recipient_value']['id'] = 'field_original_recipient_value';
   $handler->display->display_options['filters']['field_original_recipient_value']['table'] = 'field_data_field_original_recipient';
   $handler->display->display_options['filters']['field_original_recipient_value']['field'] = 'field_original_recipient_value';
@@ -1116,9 +1071,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_original_recipient_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator_id'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['label'] = 'Filter: Original Recipient';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
-  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */
@@ -1133,32 +1088,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['tab_options']['type'] = 'tab';
   $handler->display->display_options['tab_options']['title'] = 'Open/Click Messages';
   $handler->display->display_options['tab_options']['weight'] = '0';
-  $translatables['open_click_messages_view'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Report Type'),
-    t('Account Id'),
-    t('Date'),
-    t('Original Recipient'),
-    t('Event Type'),
-    t('Remote IP'),
-    t('URL'),
-    t('Mailing Id'),
-    t('Message Id'),
-    t('Filter: Start Date'),
-    t('Filter: End Date'),
-    t('Filter: Original Recipient'),
-    t('Block'),
-    t('Page'),
-  );
   $export['open_click_messages_view'] = $view;
 
   $view = new view;
@@ -1177,6 +1106,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -1269,11 +1199,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
@@ -1289,11 +1219,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_default_classes'] = 1;
@@ -1309,11 +1239,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_date']['element_default_classes'] = 1;
@@ -1337,11 +1267,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_toaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_default_classes'] = 1;
@@ -1357,11 +1287,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fromaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_default_classes'] = 1;
@@ -1377,11 +1307,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messagesize']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messagesize']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messagesize']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messagesize']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messagesize']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['element_default_classes'] = 1;
@@ -1401,11 +1331,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_disposition']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_disposition']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_disposition']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_disposition']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_disposition']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_disposition']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_disposition']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_disposition']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_disposition']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_disposition']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_disposition']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_disposition']['element_default_classes'] = 1;
@@ -1425,11 +1355,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_localip']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_localip']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_localip']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_localip']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_localip']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_localip']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_localip']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_localip']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_localip']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_localip']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_localip']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_localip']['element_default_classes'] = 1;
@@ -1445,11 +1375,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_mailingid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_default_classes'] = 1;
@@ -1465,11 +1395,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messageid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_default_classes'] = 1;
@@ -1481,7 +1411,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -1490,6 +1420,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1498,7 +1429,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
@@ -1507,6 +1438,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
+  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1515,7 +1447,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Sent From (field_fromaddress) - value */
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
   $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
   $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
   $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
@@ -1524,11 +1456,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Fields: Sent To (field_toaddress) - value */
+  /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['table'] = 'field_data_field_toaddress';
   $handler->display->display_options['filters']['field_toaddress_value']['field'] = 'field_toaddress_value';
@@ -1537,9 +1469,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -1562,34 +1494,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['tab_options']['type'] = 'tab';
   $handler->display->display_options['tab_options']['title'] = 'Processed Messages';
   $handler->display->display_options['tab_options']['weight'] = '0';
-  $translatables['processed_messages_view'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Report Type'),
-    t('Account Id'),
-    t('Date'),
-    t('Sent To'),
-    t('Sent From'),
-    t('Message Size'),
-    t('Disposition'),
-    t('Local IP'),
-    t('Mailing Id'),
-    t('Message Id'),
-    t('Filter: Start Date'),
-    t('Filter: End Date'),
-    t('Filter: Sent From'),
-    t('Filter: Sent To'),
-    t('Block'),
-    t('Page'),
-  );
   $export['processed_messages_view'] = $view;
 
   $view = new view;
@@ -1608,6 +1512,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -1622,11 +1527,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
@@ -1642,11 +1547,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_accountid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_accountid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_accountid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_accountid']['element_default_classes'] = 1;
@@ -1662,11 +1567,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_date']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_date']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_date']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_date']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_date']['element_default_classes'] = 1;
@@ -1690,11 +1595,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_toaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_toaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_toaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_toaddress']['element_default_classes'] = 1;
@@ -1710,11 +1615,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fromaddress']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_fromaddress']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_fromaddress']['element_default_classes'] = 1;
@@ -1730,11 +1635,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messagesize']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messagesize']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messagesize']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messagesize']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messagesize']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messagesize']['element_default_classes'] = 1;
@@ -1754,11 +1659,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_mailingid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_mailingid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_mailingid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_mailingid']['element_default_classes'] = 1;
@@ -1774,11 +1679,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_messageid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_messageid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_messageid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_messageid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_label_colon'] = 0;
   $handler->display->display_options['fields']['field_messageid']['element_default_classes'] = 1;
@@ -1790,7 +1695,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -1799,6 +1704,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
+  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1807,7 +1713,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value']['year_range'] = '-3:+3';
-  /* Filter criterion: Fields: Date (field_date) */
+  /* Filter criterion: Content: Date (field_date) */
   $handler->display->display_options['filters']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value_1']['field'] = 'field_date_value';
@@ -1816,6 +1722,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
+  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1832,7 +1739,7 @@ function socketlabs_feature_views_default_views() {
     'messages_queued_node' => 'messages_queued_node',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
-  /* Filter criterion: Fields: Sent From (field_fromaddress) - value */
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
   $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
   $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
   $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
@@ -1841,11 +1748,11 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Fields: Sent To (field_toaddress) - value */
+  /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['table'] = 'field_data_field_toaddress';
   $handler->display->display_options['filters']['field_toaddress_value']['field'] = 'field_toaddress_value';
@@ -1854,9 +1761,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */
@@ -1868,32 +1775,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Queued Messages';
   $handler->display->display_options['menu']['weight'] = '4';
-  $translatables['queued_messages_block'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Report Type'),
-    t('Account Id'),
-    t('Date'),
-    t('Sent To'),
-    t('Sent From'),
-    t('Message Size'),
-    t('Mailing Id'),
-    t('Message Id'),
-    t('Filter: Start Date'),
-    t('Filter: End Date'),
-    t('Filter: Sent From'),
-    t('Filter: Sent To'),
-    t('Block'),
-    t('Page'),
-  );
   $export['queued_messages_block'] = $view;
 
   return $export;

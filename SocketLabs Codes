@@ -1,0 +1,58 @@
+<strong>Failed Mail:</strong>
+<ol><li>Failure Type
+<ul><li>1 - Permanent</li> 
+<li>0 - Temporary</li></ul></li>
+
+<li>Failure Code
+<ul><li>Message was Blocked by recipient’s mail server:
+  <ul><li>1001   Spam complaint</li>    
+  <li>1002   Blacklist</li>    
+  <li>1003   ISP block </li>   
+  <li>1004   Content block</li>    
+  <li>1005   URL block </li>   
+  <li>1006   Excess traffic </li>   
+  <li>1007   Security violation/virus</li>    
+  <li>1008   Open relay</li>    
+  <li>1009   Namespace mining detection</li>
+  <li>1010   Authentication</li>
+  <li>1999   Other</li></ul></li>    
+<li>Recipient’s address is invalid (hard bounce):
+  <ul><li>2001   Unknown user</li>    
+  <li>2002   Bad domain</li>    
+  <li>2003   Address error</li>    
+  <li>2004   Closed account</li>    
+  <li>2999   Other </li></ul></li>   
+<li>Delivery to the recipient’s address id temporarily unavailable (soft bounce) :  
+  <ul><li>3001   Recipient mailbox full</li>    
+  <li>3002   Recipient email account is inactive/disabled </li>
+  <li>3003   Greylist (recipient’s server continuously asked us to “try later”)</li>    
+  <li>3999   Other</li></ul></li>    
+<li>System and protocol errors preventing delivery:
+  <ul><li>4001   Recipient’s server too busy</li>    
+  <li>4002   Recipient’s server returned a data format error</li>    
+  <li>4003   Network error, non-specific</li>    
+  <li>4004   Recipient’s server rejected message as too old</li>    
+  <li>4006   Recipient network or configuration error , normally a relay denied</li>  
+  <li>4999   Other</li></ul></li>    
+<li>Informational:
+  <ul><li>5001 – Out of office / Auto-reply</li>
+  <li>5999 - Other</li></ul></li>
+<li>Unknown: 
+  <ul><li>9999   Unknown</li></ul></li></ul></li></ol>
+
+<strong>Feedback Loop:</strong>
+<ol><li>Type
+<ul><li>abuse - spam or some other kind of email abuse</li>
+    <li>dkim - a DKIM signature verification error</li>
+    <li>fraud - indicates some kind of fraud or phishing activity</li>
+    <li>virus - report of a virus found in the originating message</li>
+    <li>other - any other feedback that doesn't fit into other types</li></ul></li></ol>
+
+<strong>Processed Messages:</strong>
+<ol><li>Disposition
+<ul><li>0 - Failed</li>
+<li>1 - Sent (Means the message was accepted by the recipient's mail server, NOT that it was delivered to their inbox)</li></ul></li></ol>
+
+<strong>Open/Click Messages:</strong>
+<ol><li>Event Type
+<ul><li>???? - Not Specified by the API. Presumably one event type is Open and another is Click but SocketLabs does not say.</li></ul></li></ol>
