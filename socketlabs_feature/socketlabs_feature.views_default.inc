@@ -110,6 +110,14 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 1;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<?php
+    print \'There are \' . count($results) . \' results.\';
+?>';
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -340,7 +348,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -358,7 +365,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
-  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -376,9 +382,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Sent From (field_fromaddress) */
   $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
@@ -389,9 +395,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -512,6 +518,14 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 1;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<?php
+    print \'There are \' . count($results) . \' results.\';
+?>';
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -714,7 +728,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -732,7 +745,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
-  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -750,9 +762,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Original Recipient (field_original_recipient) */
   $handler->display->display_options['filters']['field_original_recipient_value']['id'] = 'field_original_recipient_value';
@@ -763,9 +775,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_original_recipient_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator_id'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['label'] = 'Filter: Original Recipient ';
-  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type (field_type) */
   $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
@@ -775,9 +787,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_type_value']['expose']['operator_id'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['label'] = 'Filter: Type';
-  $handler->display->display_options['filters']['field_type_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_type_value']['expose']['operator'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['identifier'] = 'field_type_value';
+  $handler->display->display_options['filters']['field_type_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_type_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -821,6 +833,15 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<?php
+    print \'There are \' . count($results) . \' results.\';
+?>
+';
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -1027,7 +1048,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1045,7 +1065,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
-  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1071,9 +1090,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_original_recipient_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator_id'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['label'] = 'Filter: Original Recipient';
-  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['operator'] = 'field_original_recipient_value_op';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
+  $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */
@@ -1190,6 +1209,15 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 1;
   $handler->display->display_options['style_options']['empty_table'] = 0;
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<?php
+    print \'There are \' . count($results) . \' results.\';
+?>
+';
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -1420,7 +1448,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1438,7 +1465,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
-  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1456,9 +1482,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
@@ -1469,9 +1495,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -1518,6 +1544,14 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['empty'] = FALSE;
+  $handler->display->display_options['header']['php']['php_output'] = '<?php
+    print \'There are \' . count($results) . \' results.\';
+?>';
   /* Field: Content: Report Type */
   $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
   $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
@@ -1704,7 +1738,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator_id'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['label'] = 'Filter: Start Date';
-  $handler->display->display_options['filters']['field_date_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value']['expose']['operator'] = 'field_date_value_op';
   $handler->display->display_options['filters']['field_date_value']['expose']['identifier'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['expose']['multiple'] = FALSE;
@@ -1722,7 +1755,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator_id'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['label'] = 'Filter: End Date';
-  $handler->display->display_options['filters']['field_date_value_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_date_value_1']['expose']['operator'] = 'field_date_value_1_op';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['identifier'] = 'field_date_value_1';
   $handler->display->display_options['filters']['field_date_value_1']['expose']['multiple'] = FALSE;
@@ -1748,9 +1780,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
@@ -1761,9 +1793,9 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator_id'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['label'] = 'Filter: Sent To';
-  $handler->display->display_options['filters']['field_toaddress_value']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['operator'] = 'field_toaddress_value_op';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
+  $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */

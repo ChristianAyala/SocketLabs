@@ -27,7 +27,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "administer nodes",
       "bypass node access",
       "create failed_mail_node content",
-      "create feed content",
       "create feedback_loop_report content",
       "create messages_open_click_node content",
       "create messages_processed_node content",
@@ -61,7 +60,6 @@ class SocketLabsTestCase extends DrupalWebTestCase {
       "edit any xml_messages_queued content",
       "edit any xml_open_click content",
       "import failed_mail_importer feeds",
-      "import feed feeds",
       "import feedback_loop_importer feeds",
       "import messages_open_click_importer feeds",
       "import messages_processed_importer feeds",
@@ -78,69 +76,71 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     //Ensures the feature was installed successfully
     $this->drupalGet('');
     $this->assertText(t('Welcome to Drupal'), t('Confirm that the front page was properly retrieved'));
-    $this->assertLink(t('Failed Mail'), 0, t('The FAILED MAIL tab is present'));
-    $this->assertLink(t('Feedback Loop Mail'), 0, t('The FEEDBACK LOOP MAIL tab is present'));
-    $this->assertLink(t('Processed Messages'), 0, t('The PROCESSED MESSAGES tab is present'));
-    $this->assertLink(t('Queued Messages'), 0, t('The QUEUED MESSAGES tab is present'));
-    $this->assertLink(t('Open/Click Mail'), 0, t('The OPEN/CLICK MAIL tab is present'));
-    $this->assertLink(t('Import'), 0, t('The user has permission to import feeds'));
+    $tabNames = array('Failed Mail', 'Feedback Loop Mail', 'Processed Messages', 'Queued Messages', 'Open/Click Mail', 'Import');
+    foreach ($tabNames as $tab) {
+      $this->assertLink (t($tab), 0, t('The '.$tab.' tab is present'));
+    }
     
+    //Tests the following tabs for proper fields and selects present
+    $tabLinks = array('Failed Mail', 'Processed Messages', 'Queued Messages');
+    foreach ($tabLinks as $tab)
+    {
+      $this->clickLink(t($tab));
+      $this->assertResponse(200, t('The tab '.$tab.' loaded properly'));
+      $this->pass(t('TESTING THE '.$tab.' TAB'));
+      $textInput = array ('Filter: Sent From', 'Filter: Sent To', 'Filter: Start Date', 'Filter: End Date');
+      foreach ($textInput as $text) {
+        $this->assertText(t($text), t('The filter: ' . $text . ' is present'));
+      }
+      $optionSelected = array('fromaddress', 'toaddress');
+      foreach ($optionSelected as $option) {
+        $this->assertOptionSelected(t('edit-field-'.$option.'-value-op'), t('contains'), t('The ' . $option . ' select field is present'));
+        $this->assertFieldById(t('edit-field-'.$option.'-value'), t(''), t('The '.$option.' input field is present'));
+      }
+      $dateOptionSelected = array('value-year', 'value-month', 'value-day', '1-value-year', '1-value-month', '1-value-day');
+      foreach ($dateOptionSelected as $option){
+        $this->assertOptionSelected(t('edit-field-date-value-'.$option), t(''), t('The select is present for '.$option.' and the default is correct'));
+      }
+      $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
+      
+      $edit = array (
+        'field_toaddress_value' => $this->randomName(20),
+        'field_fromaddress_value' => $this->randomName(20),
+        'field_date_value[value][year]' => '2011',
+        'field_date_value[value][month]' => '3',
+        'field_date_value[value][day]' => '15',
+        'field_date_value_1[value][year]' => '2011',
+        'field_date_value_1[value][month]' => '9',
+        'field_date_value_1[value][day]' => '20',
+      );
+      $this->drupalPost(NULL, $edit, t('Apply'));
+      $this->assertResponse(200, t('The query was successfully passed and processed'));
+      $this->assertNoRaw(t('views-table'), t('No results should be present for this query, as no results are present'));
+    }
     
-    
-    //Tests the Failed Mail tab and search fields
-    $this->clickLink(t('Failed Mail'));
-    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
-    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
-    $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
-    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertText(t('Filter: Start Date'), t('The START DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
-    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
-    
-    $edit = array (
-      'field_toaddress_value' => $this->randomName(20),
-      'field_fromaddress_value' => $this->randomName(20),
-      'field_date_value[value][year]' => '2011',
-      'field_date_value[value][month]' => '3',
-      'field_date_value[value][day]' => '15',
-      'field_date_value_1[value][year]' => '2011',
-      'field_date_value_1[value][month]' => '9',
-      'field_date_value_1[value][day]' => '20',
-    );
-    $this->drupalPost(NULL, $edit, t('Apply'));
-    $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoRaw(t('views-table'), t('No results should be present for this query, as no results are present'));
     
     
     //Tests the Feedback Loop Mail tab and search fields
     $this->clickLink(t('Feedback Loop Mail'));
     $this->assertResponse(200, t('The FEEDBACK LOOP MAIL tab was loaded properly'));
-    $this->assertText(t('Filter: Start Date'), t('The START DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
-    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
-    $this->assertText(t('Filter: Original Recipient'), t('The ORIGINAL RECIPIENT filter is present'));
-    $this->assertOptionSelected(t('edit-field-original-recipient-value-op'), t('contains'), t('Select is present for Original Recipient filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-original-recipient-value'), '', t('The original recipient input field is present'));
-    $this->assertText(t('Filter: Type'), t('The TYPE filter is present'));
-    $this->assertOptionSelected(t('edit-field-type-value-op'), t('='), t('Select is present for Type filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-type-value'), '', t('The type input field is present'));
-    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
+    
+    $feedback_text = array('Filter: Start Date', 'Filter: End Date');
+    $dateOptionSelected = array('value-year', 'value-month', 'value-day', '1-value-year', '1-value-month', '1-value-day');
+    for ($i = 0; $i < count($feedback_text); $i++) {
+      $this->assertText(t($feedback_text[$i]), t('The '.$feedback_text[$i].' filter is present'));
+      for ($j = ($i*3); $j < ((count($dateOptionSelected)/2)+($i*3)); $j++){
+        $this->assertOptionSelected(t('edit-field-date-value-'.$dateOptionSelected[$j]), t(''), t('Select is present for '.$dateOptionSelected[$j].' is present and default filter is correct'));
+      }
+    }
+    
+    $feedback_text = array('Filter: Sent From', 'Filter: Original Recipient', 'Filter: Type');
+    $fieldOptions = array('fromaddress', 'original-recipient', 'type');
+    for($option = 0; $option < 3; $option++) {
+      $this->assertText(t($feedback_text[$option]), t('The '. $feedback_text[$option] .' is present'));
+      $this->assertOptionSelected(t('edit-field-'.$fieldOptions[$option].'-value-op'), t('contains'), t('Select is present for '.$fieldOptions[$option]. ' and default filter is correct (this will fail once)'));
+      $this->assertFieldById(t('edit-field-'.$fieldOptions[$option].'-value'), t(''), t('The '.$fieldOptions[$option]. ' input field is present')); 
+    }
+    
     
     $edit = array (
       'field_original_recipient_value' => $this->randomName(20),
@@ -151,268 +151,174 @@ class SocketLabsTestCase extends DrupalWebTestCase {
     $this->assertResponse(200, t('The query was successfully passed and processed'));
     $this->assertNoRaw(t('views-table'), t('No results should be present for this query, as no results are present'));
     
-    //Tests the Processed Messages tab and search fields
     
-    $this->clickLink(t('Processed Messages'));
-    $this->assertResponse(200, t('The PROCESSED MESSAGES tab was loaded properly'));
-    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
-    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The from address input field is present'));
-    $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
-    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
-    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
-    
-    $edit = array (
-      'field_toaddress_value' => $this->randomName(20),
-      'field_fromaddress_value' => $this->randomName(20),
-      'field_date_value[value][year]' => '2011',
-      'field_date_value[value][month]' => '3',
-      'field_date_value[value][day]' => '15',
-      'field_date_value_1[value][year]' => '2011',
-      'field_date_value_1[value][month]' => '9',
-      'field_date_value_1[value][day]' => '20',
-    );
-    $this->drupalPost(NULL, $edit, t('Apply'));
-    $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoRaw(t('views-table'), t('No results should be present for this query'));
-    
-    //Tests the Queued Messages tab and search fields
-    
-    $this->clickLink('Queued Messages');
-    $this->assertResponse(200, t('The QUEUED MESSAGES tab was loaded properly'));
-    $this->assertText(t('Filter: Sent From'), t('The SENT FROM filter is present'));
-    $this->assertOptionSelected(t('edit-field-fromaddress-value-op'), t('contains'), t('Select is present for Sent From filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-fromaddress-value'), '', t('The sent from input field is present'));
-    $this->assertText(t('Filter: Sent To'), t('The SENT TO filter is present'));
-    $this->assertOptionSelected(t('edit-field-toaddress-value-op'), t('contains'), t('Select is present for Sent To filter, and default filter is correct'));
-    $this->assertFieldById(t('edit-field-toaddress-value'), '', t('The to address input field is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
-    $this->assertNoRaw(t('views-table'), t('There should be no table, so there is no div with class views-table'));
-    
-    $this->drupalPost(NULL, $edit, t('Apply'));
-    $this->assertResponse(200, t('The query was successfully passed and processed'));
-    $this->assertNoRaw(t('views-table'), t('No results should be present for this query'));
-    
-    //Tests the Open/Click Mail tab and search field
+    //Tests the Open/Click Mail tab and search fields
     $this->clickLink(t('Open/Click Mail'));
     $this->assertResponse(200, t('The OPEN/CLICK tab was loaded properly'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-year'), t(''), t('Select is present for Start Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-month'), t(''), t('Select is present for Start Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-value-day'), t(''), t('Select is present for Start Date Day filter, and default filter is correct'));
-    $this->assertText(t('Filter: End Date'), t('The END DATE filter is present'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-year'), t(''), t('Select is present for End Date Year filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-month'), t(''), t('Select is present for End Date Month filter, and default filter is correct'));
-    $this->assertOptionSelected(t('edit-field-date-value-1-value-day'), t(''), t('Select is present for End Date Day filter, and default filter is correct'));
+    
+    $feedback_text = array('Filter: Start Date', 'Filter: End Date');
+    $dateOptionSelected = array('value-year', 'value-month', 'value-day', '1-value-year', '1-value-month', '1-value-day');
+    for ($i = 0; $i < count($feedback_text); $i++) {
+      $this->assertText(t($feedback_text[$i]), t('The '.$feedback_text[$i].' filter is present'));
+      for ($j = ($i*3); $j < ((count($dateOptionSelected)/2)+($i*3)); $j++){
+        $this->assertOptionSelected(t('edit-field-date-value-'.$dateOptionSelected[$j]), t(''), t('Select is present for '.$dateOptionSelected[$j].' is present and default filter is correct'));
+      }
+    }
     $this->assertText(t('Filter: Original Recipient'), t('The ORIGINAL RECIPIENT filter is present'));
     $this->assertOptionSelected(t('edit-field-original-recipient-value-op'), t('contains'), t('Select is present for Original Recipient filter, and default filter is correct'));
     $this->assertFieldById(t('edit-field-original-recipient-value'), '', t('The original recipient input field is present'));
-    
-    
     
     //Checks to make sure all of the import options are available
     $this->drupalGet('');
     $this->clickLink(t('Import'));
     $this->assertResponse(200, 'User has privilege to import a feed');
-    $this->assertLink(t('xml failed feed'), 0, t('XML Failed Feed is present'));
-    $this->assertLink(t('xml feedback loop feed'), 0, t('XML Feedback Loop Feed is present'));
-    $this->assertLink(t('xml open click'), 0, t('XML Open Click Feed is present'));
-    $this->assertLink(t('xml messages processed'), 0, t('XML Messages Processed Feed is present'));
-    $this->assertLink(t('xml messages queued'), 0, t('XML Messages Queued Feed is present'));
-    
-    //Ensures all of the defualt XPath parameters are correct
-    $this->clickLink(t('xml failed feed'));
-    $this->assertResponse(200, 'The failed feed options page loaded correctly');
-    $this->assertFieldById(t('edit-title'), '', t('The edit title field is present'));
-    $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
-    $this->assertText(t('XPath Parser Settings'), t('The user can edit the XPath parser settings'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser2'), t('MessageId'), t('The field_messageId is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser3'), t('MailingId'), t('The field_mailingid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser4'), t('ToAddress'), t('The field_toaddress is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser5'), t('FromAddress'), t('The field_fromaddress is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser6'), t('FailureType'), t('The field_failtype is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('FailureCode'), t('The field_failcode is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('Reason'), t('The field_reason is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('AccountId'), t('The field_acountid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser10'), t('//totalCount'), t('The field_count is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser11'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
-    
-    
+    $feed_links = array('xml failed feed', 'xml feedback loop feed', 'xml open click', 'xml messages processed', 'xml messages queued');
+    foreach ($feed_links as $link)
+    {
+      $this->assertLink(t($link), 0, t($link . ' is present and clickable'));
+    }
     
     
     //--------------Testing the Failed Feed Report page----------------//
-    //Tests the error generated by a random url entered in the url field
-    $edit = array(
-      'feeds[FeedsHTTPFetcher][source]' => $this->randomName(50),
-    );
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertResponse(500, t('There should be a curl exception with a randomly generated url, so the response is 500'));
+    $this->clickLink(t('xml failed feed'));
+    $this->assertResponse(200, 'The failed feed options page loaded correctly');
+    $this->assertFieldById(t('edit-feeds-feedshttpfetcher-source'), '', t('The edit URL field is present'));
     
-    //Tests the error generated by an api url without credentials
-    $edit= array(
-      'feeds[FeedsHTTPFetcher][source]' => 'https://api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
-    );
-    $this->drupalGet('node/add/xml-failed-feed');
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertText(t('failed with code 401'), t('Because no credentials were given, there should be a 401 - Unauthorized Access error'));
-    $this->assertResponse(500, t('Due to previous API call error, the server should return error code 500'));
-
-
-
-    //Tests the error generated by a URL not of the type we are looking for (in this case, Engadget)    
-    $edit= array(
-      'feeds[FeedsHTTPFetcher][source]' => 'http://www.engadget.com/rss.xml',
-      'title' => 'Engadget',
-    );    
-    $node_count = 0;
-    $this->drupalGet('node/add/xml-failed-feed');
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertResponse(200, t('This is a valid URL, but invalid XML returned'));
-    $this->assertText(t('There are no new nodes'), t('No new nodes were created with ' . $edit['feeds[FeedsHTTPFetcher][source]']));
-    $this->assertRaw(t('xml failed feed <em class="placeholder">' .$edit['title']  . '</em> has been created'), t('XML Feed was technically created with' . $edit['feeds[FeedsHTTPFetcher][source]']));
-    
-    $query = 'SELECT count(*) as count FROM {node}';
-    $result = db_query($query);
-    foreach ($result as $record) {
-      $this->pass(t('Number of nodes is ' . $record->count));
-      $node_count += $record->count;
+    $xpath_field_names = array('MessageId', 'MailingId', 'ToAddress', 'FromAddress', 'FailureType', 'FailureCode', 'Reason', 'AccountId', '//totalCount', 'DateTime');
+    for($i = 2; $i < 12; $i++) {
+      $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-2)]), t('The field '.$xpath_field_names[($i-2)]. ' is present and set to the proper default setting'));
     }
-    
-    
-    //Finally tests the proper API call to the SocketLabs webserver
-    //This may need to change if the number of API calls gets too high...
-    $edit = array(
-      'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
-      'title' => 'SocketLabs Result',
-    );
-    $this->drupalGet('node/add/xml-failed-feed');
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $return_content = $this->drupalGetContent();
-    $this->assertResponse(200, t('This is a fully validated SocketLabs URL'));
-    $this->assertRaw(t('xml failed feed <em class="placeholder">' .$edit['title']  . '</em> has been created'), t('XML Feed was created with' . $edit['feeds[FeedsHTTPFetcher][source]']));
-    
-    //Ensures that the proper number of nodes are inserted into the database
-    $position = strpos($return_content, '<li>Created');
-    $number_created = $position+12;
-    $number_created = substr($return_content, $number_created, 2);
-    $this->pass(t('Number created: ' . $number_created . ' ...nodes'));
-    
-    $result = db_query($query);
-    foreach ($result as $record) {
-      $this->assertEqual(($record->count - $node_count - 1), $number_created, t('The number created matches the additions in the database: '. ($record->count - $node_count - 1)));
-    }
-    
-    //Ensures the table appears in the tab
-    $this->drupalGet('');
-    $this->assertText(t($edit['title']), t('The feed ' . $edit['title'] . ' appears on the home page'));
-    $this->drupalGet('socketlabs/failed_mail');
-    $this->assertRaw(t('views-table'), t('The table appears on the proper tab with results'));
-    
-    //Performs queries based on values found in the database
-    $query = 'SELECT field_toaddress_value FROM {field_data_field_toaddress}';
-    $result = db_query($query);
-    foreach ($result as $record) {
-      $test_email = $record->field_toaddress_value;
-      $edit = array (
-        'field_toaddress_value' => $test_email,
-      );
-      $this->drupalPost(NULL, $edit, t('Apply'));
-      $this->assertResponse(200, t('The query searching to address ' . $edit['field_toaddress_value'] . ' was successful'));
-      $this->assertRaw(t('views-table'), t('Results were returned, and a table is visible'));
-    }
-    
-    //Deletes the nodes that were created by getting their ID's from
-    //the database.
-    $query = "SELECT nid, title FROM {node} WHERE type = 'failed_mail_node'";
-    $result = db_query($query);
-    foreach ($result as $record) {
-      $nid = $record->nid;
-      $title = $record->title;
-      $this->drupalGet('node/'.$nid.'/edit');
-      $this->drupalPost(NULL, array('title' => $this->randomName(10)), t('Delete'));
-      $this->drupalPost(NULL, array(), t('Delete'));
-      $this->assertRaw(t('failed mail node <em class="placeholder">'.$title.'</em> has been deleted'), t('The node with nid ' . $nid . ' was properly deleted'));
-    }
-    
-    
     
     //--------------Now testing the Feedback loop report page--------------//
     $this->drupalGet('node/add/xml-feedback-loop-report');
     $this->assertResponse(200, 'The FEEDBACK LOOP FEED options page loaded correctly');
     $this->assertText(t('Create xml feedback loop feed'), t('The proper import page has been loaded'));
     
+    
+    $xpath_field_names = array('MessageId', 'FromAddress', 'MailingId', 'OriginalRecipient', 'Type', 'UserAgent', 'AccountId', 'DateTime');
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
     $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser1'), t('MessageId'), t('The field_messageid is present and set to the proper default setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser3'), t('FromAddress'), t('The field_fromaddress is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser4'), t('MailingId'), t('The field_mailingid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser5'), t('OriginalRecipient'), t('The field_original_recipient is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser6'), t('Type'), t('The field_type is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser7'), t('UserAgent'), t('The field_user_agent is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser8'), t('AccountId'), t('The field_accountid is present and set to the proper dafault setting'));
-    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser9'), t('DateTime'), t('The field_datetime is present and set to the proper default setting'));
+    for ($i = 3; $i < 10; $i++) {
+      $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-2)]), t('The field '.$xpath_field_names[($i-2)].' is present and set to the proper default setting'));
+    }
+  
+    //-----------Now testing the Processed Messages report page--------------//
+    $this->drupalGet('node/add/xml-messages-processed');
+    $this->assertResponse(200, 'The PROCESSED MESSAGES options page loaded correctly');
+    $this->assertText(t('Create xml messages processed'), t('The proper import page has been loaded'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser1'), t('MessageId'), t('The field_messageid is present and set to the proper default setting'));
     
-    //Tests the error generated by a random url entered in the url field
-    $edit = array(
-      'feeds[FeedsHTTPFetcher][source]' => $this->randomName(50),
-      'title' => $this->randomName(20),
-    );
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertText(t('cURL error'), t('The URL is random, so there is a very good chance there is an error'));
-    $this->assertResponse(200, t('There should be a curl exception with a randomly generated url, so the response is 500'));
-    
-    //Tests the error generated by an api url without credentials
-    $edit= array(
-      'feeds[FeedsHTTPFetcher][source]' => 'https://api.socketlabs.com/v1/messagesFailed?serverId=4068&type=xml',
-      'title' => $this->randomName(20),
-    );
-    $this->drupalGet('node/add/xml-feedback-loop-report');
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertText(t('failed with code 401'), t('Because no credentials were given, there should be a 401 - Unauthorized Access error'));
-    $this->assertResponse(200, t('The feed will create with no new nodes'));
-
-
-
-    //Tests the error generated by a URL not of the type we are looking for (in this case, Engadget)    
-    $edit= array(
-      'feeds[FeedsHTTPFetcher][source]' => 'http://www.engadget.com/rss.xml',
-      'title' => 'Engadget',
-    );    
-    $node_count = 0;
-    $this->drupalGet('node/add/xml-feedback-loop-report');
-    $this->drupalPost(NULL, $edit, t('Save'));
-    $this->assertResponse(200, t('This is a valid URL, but invalid XML returned'));
-    $this->assertText(t('There are no new nodes'), t('No new nodes were created with ' . $edit['feeds[FeedsHTTPFetcher][source]']));
-    $this->assertRaw(t('xml feedback loop feed <em class="placeholder">' .$edit['title']  . '</em> has been created'), t('XML Feed was technically created with' . $edit['feeds[FeedsHTTPFetcher][source]']));
-    
-    $query = 'SELECT count(*) as count FROM {node}';
-    $result = db_query($query);
-    foreach ($result as $record) {
-      $this->pass(t('Number of nodes is ' . $record->count));
-      $node_count += $record->count;
+    $xpath_field_names = array('Disposition', 'FromAddress', 'LocalIp', 'MailingId', 'MessageSize', 'Response', 'ToAddress', 'AccountId', 'DateTime');
+    for ($i = 3; $i < 11; $i++) {
+      $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-3)]), t('The field '.$xpath_field_names[($i-3)].' is present and set to the proper default setting'));
     }
     
-    $this->drupalGet('');
-    $this->drupalGet('node/add/xml-feedback-loop-report');
+    //----------Now testing the Queued Messages report page------------------//
+    $this->drupalGet('node/add/xml-messages-queued');
+    $this->assertResponse(200, 'The QUEUED MESSAGES options page loaded correctly');
+    $this->assertText(t('Create xml messages queued'), t('The proper import page has been loaded'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
+
+    $xpath_field_names = array('MessageId', 'FromAddress', 'MailingId', 'MessageSize', 'ToAddress', 'AccountId', 'DateTime');
+    for ($i = 2; $i < 9; $i++) {
+      $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-2)]), t('The field '.$xpath_field_names[($i-2)].' is present and set to the proper default setting'));
+      
+    }
     
-    $edit = array(
-      'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/messagesFblReported?serverId=4068&type=xml',
-      'title' => 'Feedback Loop Result',
-    );
-    //$this->drupalPost(NULL, $edit, t('Save'));
+    //----------Now testing the Open/Click Messages report page-------------//
+    $this->drupalGet('node/add/xml-open-click');
+    $this->assertResponse(200, 'The OPEN/CLICK options page loaded correctly');
+    $this->assertText(t('Create xml open click'), t('The proper import page has been loaded'));
+    $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-context'), t('//item'), t('The Context field is present and set to the proper default setting'));
     
+    $xpath_field_names = array('MessageId', 'MailingId', 'OriginalRecipient', 'EventType', 'URL', 'RemoteIp', 'AccountId', 'DateTime');
+    for ($i = 2; $i < 10; $i++) {
+      $this->assertFieldById(t('edit-feeds-feedsxpathparserxml-xpath-sources-xpathparser'.$i), t($xpath_field_names[($i-2)]), t('The field '.$xpath_field_names[($i-2)].' is present and set to the proper default setting'));
+    }
+    
+    
+    /*
+    * The following tests how each feed responsds to different bad URL's. First a random
+    * url, then a url without credentials, and finally a valid url not of the socketlabs
+    * variety.
+    */
+    $feed_names = array('xml-failed-feed', 'xml-feedback-loop-report', 'xml-messages-processed', 'xml-open-click', 'xml-messages-queued');
+    foreach($feed_names as $feed_name) {
+      $this->drupalGet('node/add/'. $feed_name);
+      $this->assertResponse(200, 'The '.$feed_name.' creation page loaded properly');
+      
+      $edit = array(
+        'feeds[FeedsHTTPFetcher][source]' => $this->randomName(50),
+        'title' => $this->randomName(20),
+      );
+      $this->drupalPost(NULL, $edit, t('Save'));
+      $this->assertText(t('cURL error'), t('The URL is random, so there is a very good chance there is a cURL error'));
+      
+      $edit= array(
+        'feeds[FeedsHTTPFetcher][source]' => 'https://api.socketlabs.com/v1/messagesProcessed?serverId=4068&type=xml',
+        'title' => $this->randomName(20),
+      );
+      $this->drupalGet('node/add/'.$feed_name);
+      $this->drupalPost(NULL, $edit, t('Save'));
+      $this->assertText(t('failed with code 401'), t('Because no credentials were given, there should be a 401 - Unauthorized Access error'));
+      
+      //Tests the error generated by a URL not of the type we are looking for (in this case, Engadget)    
+      $edit= array(
+        'feeds[FeedsHTTPFetcher][source]' => 'http://www.engadget.com/rss.xml',
+        'title' => 'Engadget',
+      );    
+      $node_count = 0;
+      $this->drupalGet('node/add/xml-feedback-loop-report');
+      $this->drupalPost(NULL, $edit, t('Save'));
+      $this->assertResponse(200, t('This is a valid URL, but invalid XML returned'));
+      $this->assertText(t('There are no new nodes'), t('No new nodes were created with ' . $edit['feeds[FeedsHTTPFetcher][source]']));
+      
+    }
+    
+    
+    
+    
+    /*
+    * The following tests how each feed reacts to proper API calls. This is
+    * commented out for now in an effort to conserve API calls. To test fully,
+    * uncomment this section
+    */
+    /*
+    $socketlabs_url = array('messagesFailed', 'messagesFblReported', 'messagesQueued', 'messagesProcessed');
+    $drupal_create_url = array('xml-failed-feed', 'xml-feedback-loop-report', 'xml-messages-queued', 'xml-messages-processed');
+    $drupal_page_url = array('failed_mail','feedback_loop', 'queued_messages', 'processed_messages');
+    $drupal_type = array('xml failed feed', 'xml feedback loop feed', 'xml messages queued', 'xml messages processed');
+    $sql_type = array('failed_mail_node','feedback_loop_report', 'messages_queued_node', 'messages_processed_node');
+    
+    for($i = 0; $i < count($socketlabs_url); $i++) {
+      $this->drupalGet('node/add/'.$drupal_create_url[$i]);
+      $edit = array(
+        'feeds[FeedsHTTPFetcher][source]' => 'https://chrisayala09:8xWlFFfKDHfiT8GUHAlP@api.socketlabs.com/v1/'.$socketlabs_url[$i].'?serverId=4068&type=xml',
+        'title' => $this->randomName(10),
+      );
+      
+      $this->drupalPost(NULL, $edit, t('Save'));
+      $return_content = $this->drupalGetContent();
+      $this->assertResponse(200, t($edit['feeds[FeedsHTTPFetcher][source]'] . ' is a valid Feedback Loop Report URL'));
+      $this->assertRaw(t('<li>'.$drupal_type[$i].' <em class="placeholder">'.$edit['title'].'</em> has been created.</li>'), t('Page created successfully'));
+      
+      $this->drupalGet('');
+      $this->assertText(t($edit['title']), t('The feed ' . $edit['title'] . ' appears on the home page'));
+      $this->drupalGet('socketlabs/'.$drupal_page_url[$i]);
+      $this->assertRaw(t('views-table'), t('The table appears on the proper tab with results'));
+      
+      $query = "SELECT nid, title FROM {node} WHERE type = '".$sql_type[$i]."'";
+      $result = db_query($query);
+      foreach ($result as $record) {
+        $nid = $record->nid;
+        $title = $record->title;
+        $this->drupalGet('node/'.$nid.'/edit');
+        $this->drupalPost(NULL, array('title' => $this->randomName(10)), t('Delete'));
+        $this->drupalPost(NULL, array(), t('Delete'));
+        $this->assertRaw(t('<em class="placeholder">'.$title.'</em> has been deleted'), t('The node with nid ' . $nid . ' was properly deleted'));
+      }
+    }
+    */
   }
 }
