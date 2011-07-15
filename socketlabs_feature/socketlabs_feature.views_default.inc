@@ -118,26 +118,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['header']['php']['php_output'] = '<?php
     print \'There are \' . count($results) . \' results.\';
 ?>';
-  /* Field: Content: Report Type */
-  $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['field'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['hide_empty'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['field_api_classes'] = 0;
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -226,7 +206,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_accountid']['hide_empty'] = 1;
   $handler->display->display_options['fields']['field_accountid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_accountid']['field_api_classes'] = 0;
-  /* Field: Content: Failure Type */
+  /* Field: Content: Fail Type */
   $handler->display->display_options['fields']['field_failtype']['id'] = 'field_failtype';
   $handler->display->display_options['fields']['field_failtype']['table'] = 'field_data_field_failtype';
   $handler->display->display_options['fields']['field_failtype']['field'] = 'field_failtype';
@@ -407,6 +387,66 @@ function socketlabs_feature_views_default_views() {
     'failed_mail_node' => 'failed_mail_node',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
+  /* Filter criterion: Content: Fail Type (field_failtype) */
+  $handler->display->display_options['filters']['field_failtype_value']['id'] = 'field_failtype_value';
+  $handler->display->display_options['filters']['field_failtype_value']['table'] = 'field_data_field_failtype';
+  $handler->display->display_options['filters']['field_failtype_value']['field'] = 'field_failtype_value';
+  $handler->display->display_options['filters']['field_failtype_value']['value'] = array(
+    'all' => 'all',
+    0 => '0',
+    1 => '1',
+    2 => '2',
+  );
+  $handler->display->display_options['filters']['field_failtype_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['operator_id'] = 'field_failtype_value_op';
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['label'] = 'Filter: Fail Type';
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['operator'] = 'field_failtype_value_op';
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['identifier'] = 'field_failtype_value';
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['remember'] = 1;
+  $handler->display->display_options['filters']['field_failtype_value']['expose']['reduce'] = 1;
+  /* Filter criterion: Content: Failure Code (field_failcode) */
+  $handler->display->display_options['filters']['field_failcode_value']['id'] = 'field_failcode_value';
+  $handler->display->display_options['filters']['field_failcode_value']['table'] = 'field_data_field_failcode';
+  $handler->display->display_options['filters']['field_failcode_value']['field'] = 'field_failcode_value';
+  $handler->display->display_options['filters']['field_failcode_value']['value'] = array(
+    'all' => 'all',
+    1001 => '1001',
+    1002 => '1002',
+    1003 => '1003',
+    1004 => '1004',
+    1005 => '1005',
+    1006 => '1006',
+    1007 => '1007',
+    1008 => '1008',
+    1009 => '1009',
+    1010 => '1010',
+    1999 => '1999',
+    2001 => '2001',
+    2002 => '2002',
+    2003 => '2003',
+    2004 => '2004',
+    2999 => '2999',
+    3001 => '3001',
+    3002 => '3002',
+    3003 => '3003',
+    3999 => '3999',
+    4001 => '4001',
+    4002 => '4002',
+    4003 => '4003',
+    4004 => '4004',
+    4006 => '4006',
+    4999 => '4999',
+    5001 => '5001',
+    5999 => '5999',
+    9999 => '9999',
+  );
+  $handler->display->display_options['filters']['field_failcode_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['operator_id'] = 'field_failcode_value_op';
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['label'] = 'Filter: Failure Code';
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['operator'] = 'field_failcode_value_op';
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['identifier'] = 'field_failcode_value';
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['remember'] = 1;
+  $handler->display->display_options['filters']['field_failcode_value']['expose']['reduce'] = 1;
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
@@ -663,6 +703,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_type']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_type']['alter']['trim_whitespace'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_type']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_type']['alter']['ellipsis'] = 1;
@@ -673,6 +714,7 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['fields']['field_type']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_type']['hide_empty'] = 1;
   $handler->display->display_options['fields']['field_type']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_type']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['field_type']['field_api_classes'] = 0;
   /* Field: Content: Mailing Id */
   $handler->display->display_options['fields']['field_mailingid']['id'] = 'field_mailingid';
@@ -753,19 +795,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['year_range'] = '-3:+3';
-  /* Filter criterion: Content: Sent From (field_fromaddress) */
-  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
-  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Original Recipient (field_original_recipient) */
   $handler->display->display_options['filters']['field_original_recipient_value']['id'] = 'field_original_recipient_value';
   $handler->display->display_options['filters']['field_original_recipient_value']['table'] = 'field_data_field_original_recipient';
@@ -779,18 +808,39 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['identifier'] = 'field_original_recipient_value';
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_original_recipient_value']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
+  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
+  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type (field_type) */
   $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
   $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
   $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
+  $handler->display->display_options['filters']['field_type_value']['value'] = array(
+    'all' => 'all',
+    'abuse' => 'abuse',
+    'dkim' => 'dkim',
+    'fraud' => 'fraud',
+    'virus' => 'virus',
+    'other' => 'other',
+  );
   $handler->display->display_options['filters']['field_type_value']['group'] = 0;
   $handler->display->display_options['filters']['field_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_type_value']['expose']['operator_id'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['label'] = 'Filter: Type';
   $handler->display->display_options['filters']['field_type_value']['expose']['operator'] = 'field_type_value_op';
   $handler->display->display_options['filters']['field_type_value']['expose']['identifier'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['field_type_value']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['field_type_value']['expose']['remember'] = 1;
+  $handler->display->display_options['filters']['field_type_value']['expose']['reduce'] = 1;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -1218,26 +1268,6 @@ function socketlabs_feature_views_default_views() {
     print \'There are \' . count($results) . \' results.\';
 ?>
 ';
-  /* Field: Content: Report Type */
-  $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['field'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['hide_empty'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['field_api_classes'] = 0;
   /* Field: Content: Account Id */
   $handler->display->display_options['fields']['field_accountid']['id'] = 'field_accountid';
   $handler->display->display_options['fields']['field_accountid']['table'] = 'field_data_field_accountid';
@@ -1473,19 +1503,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_date_value_1']['default_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['default_to_date'] = '';
   $handler->display->display_options['filters']['field_date_value_1']['year_range'] = '-3:+3';
-  /* Filter criterion: Content: Sent From (field_fromaddress) */
-  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
-  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['table'] = 'field_data_field_toaddress';
@@ -1499,6 +1516,19 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
+  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
+  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -1507,6 +1537,22 @@ function socketlabs_feature_views_default_views() {
     'messages_processed_node' => 'messages_processed_node',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
+  /* Filter criterion: Content: Disposition (field_disposition) */
+  $handler->display->display_options['filters']['field_disposition_value']['id'] = 'field_disposition_value';
+  $handler->display->display_options['filters']['field_disposition_value']['table'] = 'field_data_field_disposition';
+  $handler->display->display_options['filters']['field_disposition_value']['field'] = 'field_disposition_value';
+  $handler->display->display_options['filters']['field_disposition_value']['value'] = array(
+    'all' => 'all',
+    0 => '0',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_disposition_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['operator_id'] = 'field_disposition_value_op';
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['label'] = 'Disposition (field_disposition)';
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['operator'] = 'field_disposition_value_op';
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['identifier'] = 'field_disposition_value';
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['remember'] = 1;
+  $handler->display->display_options['filters']['field_disposition_value']['expose']['reduce'] = 1;
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
@@ -1552,26 +1598,6 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['header']['php']['php_output'] = '<?php
     print \'There are \' . count($results) . \' results.\';
 ?>';
-  /* Field: Content: Report Type */
-  $handler->display->display_options['fields']['field_report_type']['id'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['table'] = 'field_data_field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['field'] = 'field_report_type';
-  $handler->display->display_options['fields']['field_report_type']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['hide_empty'] = 1;
-  $handler->display->display_options['fields']['field_report_type']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_report_type']['field_api_classes'] = 0;
   /* Field: Content: Account Id */
   $handler->display->display_options['fields']['field_accountid']['id'] = 'field_accountid';
   $handler->display->display_options['fields']['field_accountid']['table'] = 'field_data_field_accountid';
@@ -1771,19 +1797,6 @@ function socketlabs_feature_views_default_views() {
     'messages_queued_node' => 'messages_queued_node',
   );
   $handler->display->display_options['filters']['type']['group'] = 0;
-  /* Filter criterion: Content: Sent From (field_fromaddress) */
-  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
-  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Sent To (field_toaddress) */
   $handler->display->display_options['filters']['field_toaddress_value']['id'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['table'] = 'field_data_field_toaddress';
@@ -1797,6 +1810,19 @@ function socketlabs_feature_views_default_views() {
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['identifier'] = 'field_toaddress_value';
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['required'] = 0;
   $handler->display->display_options['filters']['field_toaddress_value']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Content: Sent From (field_fromaddress) */
+  $handler->display->display_options['filters']['field_fromaddress_value']['id'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['table'] = 'field_data_field_fromaddress';
+  $handler->display->display_options['filters']['field_fromaddress_value']['field'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_fromaddress_value']['group'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator_id'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['label'] = 'Filter: Sent From';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['operator'] = 'field_fromaddress_value_op';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['identifier'] = 'field_fromaddress_value';
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['required'] = 0;
+  $handler->display->display_options['filters']['field_fromaddress_value']['expose']['multiple'] = FALSE;
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');

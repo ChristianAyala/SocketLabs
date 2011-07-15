@@ -78,67 +78,6 @@ function socketlabs_feature_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-failed_mail_node-field_count'
-  $fields['node-failed_mail_node-field_count'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_count',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '1',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'failed_mail_node',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '10',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_count',
-      'label' => 'Count',
-      'required' => 0,
-      'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '11',
-      ),
-    ),
-  );
-
   // Exported field: 'node-failed_mail_node-field_date'
   $fields['node-failed_mail_node-field_date'] = array(
     'field_config' => array(
@@ -232,11 +171,48 @@ function socketlabs_feature_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_failcode',
       'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          1001 => 'Spam Complaint',
+          1002 => 'Blacklist',
+          1003 => 'ISP Block',
+          1004 => 'Content Block',
+          1005 => 'URL Block',
+          1006 => 'Excess Traffic',
+          1007 => 'Security Violation/Virus',
+          1008 => 'Open Relay',
+          1009 => 'Namespace Mining Detection',
+          1010 => 'Authentication',
+          1999 => 'Other (Blocked)',
+          2001 => 'Unknown User',
+          2002 => 'Bad Domain',
+          2003 => 'Address Error',
+          2004 => 'Closed Account',
+          2999 => 'Other (Invalid Address)',
+          3001 => 'Recipient Mailbox Full',
+          3002 => 'Recipient Email Account is Inactive/Disabled',
+          3003 => 'Greylist (continual "try later")',
+          3999 => 'Other (Address Unavailable)',
+          4001 => 'Recipient\\\'s Server too Busy',
+          4002 => 'Recipient\\\'s Server Returned a Data Format Error',
+          4003 => 'Network Error (Non-Specified)',
+          4004 => 'Recipient\\\'s Server Rejected Message as too Old',
+          4006 => 'Recipient\\\'s Network or Configuration Error',
+          4999 => 'Other (System and Protocol Error)',
+          5001 => 'Out of Office / Auto-Reply',
+          5999 => 'Other (Informational)',
+          9999 => 'Unknown',
+        ),
+        'allowed_values_function' => '',
+      ),
       'translatable' => '1',
-      'type' => 'number_integer',
+      'type' => 'list_text',
     ),
     'field_instance' => array(
       'bundle' => 'failed_mail_node',
@@ -246,15 +222,10 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '6',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 13,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -268,18 +239,14 @@ function socketlabs_feature_field_default_fields() {
       'label' => 'Failure Code',
       'required' => 0,
       'settings' => array(
-        'max' => '9999',
-        'min' => '0',
-        'prefix' => '',
-        'suffix' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
+        'active' => 1,
+        'module' => 'options',
         'settings' => array(),
-        'type' => 'number',
-        'weight' => '7',
+        'type' => 'options_select',
+        'weight' => '13',
       ),
     ),
   );
@@ -293,11 +260,22 @@ function socketlabs_feature_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_failtype',
       'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Temporary',
+          1 => 'Permanent',
+          2 => 'Suppressed',
+        ),
+        'allowed_values_function' => '',
+      ),
       'translatable' => '1',
-      'type' => 'number_integer',
+      'type' => 'list_text',
     ),
     'field_instance' => array(
       'bundle' => 'failed_mail_node',
@@ -307,15 +285,10 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '5',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 14,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -326,21 +299,17 @@ function socketlabs_feature_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_failtype',
-      'label' => 'Failure Type',
+      'label' => 'Fail Type',
       'required' => 0,
       'settings' => array(
-        'max' => '4',
-        'min' => '0',
-        'prefix' => '',
-        'suffix' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
+        'active' => 1,
+        'module' => 'options',
         'settings' => array(),
-        'type' => 'number',
-        'weight' => '6',
+        'type' => 'options_select',
+        'weight' => '14',
       ),
     ),
   );
@@ -613,78 +582,6 @@ function socketlabs_feature_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '8',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-failed_mail_node-field_report_type'
-  $fields['node-failed_mail_node-field_report_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_report_type',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '25',
-      ),
-      'translatable' => '1',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'failed_mail_node',
-      'default_value' => array(
-        0 => array(
-          'value' => 'Failed Messages',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '9',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_report_type',
-      'label' => 'Report Type',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '10',
       ),
     ),
   );
@@ -1261,25 +1158,25 @@ function socketlabs_feature_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_type',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
+      'foreign keys' => array(),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'value' => array(
+          0 => 'value',
         ),
       ),
-      'module' => 'text',
+      'module' => 'list',
       'settings' => array(
-        'max_length' => '80',
+        'allowed_values' => array(
+          'abuse' => 'abuse',
+          'dkim' => 'dkim',
+          'fraud' => 'fraud',
+          'other' => 'other',
+          'virus' => 'virus',
+        ),
+        'allowed_values_function' => '',
       ),
       'translatable' => '1',
-      'type' => 'text',
+      'type' => 'list_text',
     ),
     'field_instance' => array(
       'bundle' => 'feedback_loop_report',
@@ -1289,10 +1186,10 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
+          'module' => 'list',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 5,
+          'type' => 'list_default',
+          'weight' => 10,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1306,17 +1203,14 @@ function socketlabs_feature_field_default_fields() {
       'label' => 'Type',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '6',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '10',
       ),
     ),
   );
@@ -1549,12 +1443,25 @@ function socketlabs_feature_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_eventtype',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '80',
+      ),
       'translatable' => '1',
-      'type' => 'number_integer',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'messages_open_click_node',
@@ -1564,15 +1471,10 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => 4,
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 10,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1586,18 +1488,17 @@ function socketlabs_feature_field_default_fields() {
       'label' => 'Event Type',
       'required' => 0,
       'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '5',
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '10',
       ),
     ),
   );
@@ -1874,78 +1775,6 @@ function socketlabs_feature_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-messages_open_click_node-field_report_type'
-  $fields['node-messages_open_click_node-field_report_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_report_type',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '25',
-      ),
-      'translatable' => '1',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'messages_open_click_node',
-      'default_value' => array(
-        0 => array(
-          'value' => 'Open Click Messages',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 8,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_report_type',
-      'label' => 'Report Type',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '9',
-      ),
-    ),
-  );
-
   // Exported field: 'node-messages_open_click_node-field_url'
   $fields['node-messages_open_click_node-field_url'] = array(
     'field_config' => array(
@@ -2175,11 +2004,21 @@ function socketlabs_feature_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_disposition',
       'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'number',
-      'settings' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Failed',
+          1 => 'Sent',
+        ),
+        'allowed_values_function' => '',
+      ),
       'translatable' => '1',
-      'type' => 'number_integer',
+      'type' => 'list_text',
     ),
     'field_instance' => array(
       'bundle' => 'messages_processed_node',
@@ -2189,15 +2028,10 @@ function socketlabs_feature_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => 2,
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 12,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2211,18 +2045,14 @@ function socketlabs_feature_field_default_fields() {
       'label' => 'Disposition',
       'required' => 0,
       'settings' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'number',
+        'active' => 1,
+        'module' => 'options',
         'settings' => array(),
-        'type' => 'number',
-        'weight' => '3',
+        'type' => 'options_select',
+        'weight' => '12',
       ),
     ),
   );
@@ -2556,78 +2386,6 @@ function socketlabs_feature_field_default_fields() {
         'settings' => array(),
         'type' => 'number',
         'weight' => '7',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-messages_processed_node-field_report_type'
-  $fields['node-messages_processed_node-field_report_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_report_type',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '25',
-      ),
-      'translatable' => '1',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'messages_processed_node',
-      'default_value' => array(
-        0 => array(
-          'value' => 'Processed Messages',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 10,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_report_type',
-      'label' => 'Report Type',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '11',
       ),
     ),
   );
@@ -3185,78 +2943,6 @@ function socketlabs_feature_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-messages_queued_node-field_report_type'
-  $fields['node-messages_queued_node-field_report_type'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_report_type',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '25',
-      ),
-      'translatable' => '1',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'messages_queued_node',
-      'default_value' => array(
-        0 => array(
-          'value' => 'Queued Messages',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 7,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_report_type',
-      'label' => 'Report Type',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '8',
-      ),
-    ),
-  );
-
   // Exported field: 'node-messages_queued_node-field_toaddress'
   $fields['node-messages_queued_node-field_toaddress'] = array(
     'field_config' => array(
@@ -3401,12 +3087,11 @@ function socketlabs_feature_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Account Id');
   t('Body');
-  t('Count');
   t('Date');
   t('Disposition');
   t('Event Type');
+  t('Fail Type');
   t('Failure Code');
-  t('Failure Type');
   t('Local IP');
   t('Mailing Id');
   t('Message Id');
