@@ -41,6 +41,7 @@ projects[features][subdir] = contrib
 #projects[imageapi][subdir] = contrib
 #projects[token][subdir] = contrib
 projects[views][subdir] = contrib
+projects[views_php][subdir] = contrib
 #projects[example_web_scraper][subdir] = contrib
 projects[feeds][version] = 2.0-alpha3
 projects[feeds][subdir] = contrib
