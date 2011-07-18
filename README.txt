@@ -29,13 +29,12 @@ Changes to Feeds module:
 
 ------------------------------
 
-In order to have information on some of the codes given back from SocketLabs, there is
-a bit of extra configuration required. 
+The crontab is used, in this case, to make cron run every 6 minutes. When cron runs, nodes will be deleted if they have expired and import new nodes if it is time.
+Crontab Configuration:
 
-  1) Create a new Basic Page
-  2) The Title can be whatever you want (I recommend SocketLabs Codes or something
-      similar)
-  3) In the Body, copy and paste the contents of the "SocketLabs Codes" file located
-    in the same git repository as this README.
-  4) URL-Alias: socketlabs/codes
-  5) Save
+cd to /sites/all/modules
+crontab -e
+add following line: */6 * * * * wget -O - -q http://yoursitename:8080/cron.php
+
+If this does not work due to permissions (check recent log messages to confirm), go to the status report and look for the url for updating cron externally.
+This will have a long token to append after the cron.php portion of the url used to authenticate your cron job.
