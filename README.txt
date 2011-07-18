@@ -4,6 +4,18 @@ For examples from SocketLabs themselves, refer to their github repo: https://git
 
 ------------------------------
 
+To install this website and start importing your own SocketLabs reports:
+    Download and save the socketlabs_scraper.make file
+        $ wget https://raw.github.com/cayala09/SocketLabs/master/socketlabs_scraper.make
+    
+    Use drush to download Drupal and necessary modules
+        $ drush make socketlabs_scraper.make /path/to/install/drupal
+    
+    Upon beginning the Drupal installation, choose the profile "SocketLabs Email Tracker"
+    Complete the installation as normal, and the feature will automatically be installed and active
+
+------------------------------
+
 Set up for the feeds:
 	Upon installation, tabs will appear at the top of the home page. Each of these tabs
 	refers to different feeds, or different API calls. You can click on a tab, click import,
