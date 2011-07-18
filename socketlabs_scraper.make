@@ -60,8 +60,9 @@ projects[socketlabs_feature][type] = "module"
 projects[socketlabs_feature][download][type] = "git"
 projects[socketlabs_feature][download][url] = "git://github.com/cayala09/SocketLabs.git"
 projects[socketlabs_feature][subdir] = contrib
-
-
+projects[socketlabs][type] = "profile"
+projects[socketlabs][download][type] = "git"
+projects[socketlabs][download][url] = "git://github.com/cayala09/SocketLabs-Profile.git"
 ; Themes
 ; --------
 
@@ -70,6 +71,11 @@ projects[socketlabs_feature][subdir] = contrib
 ; Libraries
 ; ---------
 ; No libraries were included
+; libraries[socketlabs][download][type] = "get"
+; libraries[socketlabs][download][url] = "https://raw.github.com/cayala09/SocketLabs/master/standard.info"
+; libraries[socketlabs][download][directory_name] = "socketlabs"
+; libraries[socketlabs][destination] = "profiles"
+
 
 
 
