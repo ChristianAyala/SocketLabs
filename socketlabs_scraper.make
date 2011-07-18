@@ -33,29 +33,20 @@ projects[drupal][type] = core
   
 ; Modules
 ; --------
-#projects[contemplate][subdir] = contrib
-#projects[email][subdir] = contrib
 projects[date][subdir] = contrib
 projects[ctools][subdir] = contrib
 projects[features][subdir] = contrib
-#projects[imageapi][subdir] = contrib
 #projects[token][subdir] = contrib
 projects[views][subdir] = contrib
 projects[views_php][subdir] = contrib
-#projects[example_web_scraper][subdir] = contrib
 projects[feeds][version] = 2.0-alpha3
 projects[feeds][subdir] = contrib
 projects[job_scheduler][version] = 2.0-alpha2
 projects[job_scheduler][subdir] = contrib
 projects[feeds_xpathparser][subdir] = contrib
 projects[feeds_crawler][subdir] = contrib
-#projects[feeds_selfnode_processor][subdir] = contrib
 projects[feeds_tamper][subdir] = contrib
-#projects[smtp][version] = 1.x-dev
-#projects[smtp][subdir] = contrib
 projects[advanced_help][subdir] = contrib
-#projects[simpletest_selenium][version] = 1.x-dev
-#projects[simpletest_selenium][subdir] = contrib
 projects[socketlabs_feature][type] = "module"
 projects[socketlabs_feature][download][type] = "git"
 projects[socketlabs_feature][download][url] = "git://github.com/cayala09/SocketLabs.git"
@@ -71,10 +62,6 @@ projects[socketlabs][download][url] = "git://github.com/cayala09/SocketLabs-Prof
 ; Libraries
 ; ---------
 ; No libraries were included
-; libraries[socketlabs][download][type] = "get"
-; libraries[socketlabs][download][url] = "https://raw.github.com/cayala09/SocketLabs/master/standard.info"
-; libraries[socketlabs][download][directory_name] = "socketlabs"
-; libraries[socketlabs][destination] = "profiles"
 
 
 
